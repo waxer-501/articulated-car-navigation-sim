@@ -1,0 +1,38 @@
+{
+  "python": "3.10.12",
+  "versions": {
+    "mujoco": "3.17.0",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "PySide6": "6.8.3",
+    "shiboken6": "6.8.3"
+  },
+  "files": {
+    "artic_nav/__init__.py": "e7ce6bb83ec70e8f85d99e06535dff7dabdf33d0bf6b0a52806d87e1e992be53",
+    "artic_nav/benchmark.py": "ffc5b346888fdfb963ead0dd4b5ef6a5bb681bca789a19e0e8e96f93de73054b",
+    "artic_nav/cli.py": "e920a36f6b66640b5d2718605f6c80ab5fa2eceda9b100ab41d088abd5389901",
+    "artic_nav/config.py": "619b4042cbb94a8369bd3c8c2cd16b921ae7c0af86808900b811ed168327725b",
+    "artic_nav/controller.py": "d935e4261b375b1b73620b469a10c2aa3dad5fb1712b8bc8dfaa561e416f5994",
+    "artic_nav/estimator.py": "7cc5b121c3b898c7b029b98152c25af83d42a22b99a1762d7f1e78446524c148",
+    "artic_nav/evaluation.py": "3f555c50e09d6fd76e81964040eb48e6f7874cd1164a0a71f356327315efdf31",
+    "artic_nav/geometry.py": "0588ae54b8c365d6db501cbaafec23ff8a9ab109f4eead778cff9f8904fd12a4",
+    "artic_nav/gui.py": "f3ed75fc3c0eef479ff11569fd25228b21e5d8cedd2c601fa1e79b16d640eac3",
+    "artic_nav/navigation.py": "539f793e4354eda61363b339b9314e1530db71b41fa778316439f0a6bdfec530",
+    "artic_nav/physics.py": "f7d77ad7bc7b6040ef80b9fe174f485b3714dc29944ec26f00bb9766fe2369d6",
+    "artic_nav/planner.py": "9901eb5e1bcf5b5a4a4e0e8bd605c2313cba72bfe6eee85c6ef89cf61553307a",
+    "artic_nav/sensors.py": "cb0e1b6f6e924c989e8f862ccb4bdc5277a7e7d4fe76aab8046b5194e6ad0b88",
+    "artic_nav/session.py": "0611228f88fad1123675216509d2552309708135993665e6faff40a3f0bed840",
+    "artic_nav/worker.py": "7bc8af6f04952ad3e9dfed7eeef440dca2f5bea36707db8aa8c4c29b7717bf6b",
+    "configs/default.yaml": "e8a0112565585713ff9e938a0d4380854baac59f5295c6381d82db7300dbdacc",
+    "requirements.lock": "5ccbc187c346a9af3374998b888daaf61e4e3054667f4593b1f0d74a6b465ca3",
+    "pyproject.toml": "599d3cafef32de16d17d97c7fb5e1b4115b9c0cf8040b56ad6c68febd4c3cc44"
+  },
+  "evidence": [
+    "runs/acceptance_final/summary.json",
+    "runs/stress_final/summary.json",
+    "runs/sensitivity_final/summary.json",
+    "runs/replay_validation/result.json",
+    "runs/gui_soak/result.json"
+  ],
+  "real_hardware_used": false
+}

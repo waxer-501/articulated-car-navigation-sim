@@ -1,0 +1,76 @@
+seed: 0
+profile: nominal
+physics:
+  dt: 0.0025
+  mass: 1.0
+  friction: 0.85
+  wheel_damping: 0.01
+  drive_torque: 0.035
+  steer_torque: 0.35
+  steer_gain: 1.8
+  steer_friction: 0.004
+  actuator_delay: 0.06
+  actuator_tau: 0.07
+  drive_deadzone: 0.035
+  steer_deadzone: 0.025
+  left_right_gain: 0.97
+  initial_pose: [-0.55, -0.45, 0.0, 0.0]
+geometry:
+  wheel_radius: 0.0515
+  wheel_width: 0.04
+  track: 0.14
+  front_length: 0.11
+  rear_length: 0.12
+  max_articulation_deg: 40.0
+  body_z: 0.080
+  body_half_height: 0.020
+  body_half_width: 0.040
+  front_body_center: 0.075
+  rear_body_center: -0.080
+  front_body_half_length: 0.050
+  rear_body_half_length: 0.055
+camera:
+  width: 1024
+  height: 1024
+  z: 2.0
+  fovy: 65.0
+  hz: 30.0
+imu:
+  hz: 200.0
+  gyro_noise: 0.004
+  accel_noise: 0.05
+  gyro_bias_std: 0.003
+  gyro_bias_walk: 0.00005
+  accel_bias_std: 0.02
+detector:
+  ideal: {center_std: 0.0, size_std: 0.0, miss: 0.0, delay: 0.0, bias_std: 0.0, false_positive: 0.0}
+  nominal: {center_std: 3.0, size_std: 0.05, miss: 0.05, delay: 0.1, bias_std: 1.5, false_positive: 0.003}
+  stress: {center_std: 8.0, size_std: 0.12, miss: 0.2, delay: 0.25, bias_std: 4.0, false_positive: 0.02}
+navigation:
+  control_hz: 10.0
+  max_speed: 0.15
+  max_steer_rate_deg: 30.0
+  nominal_drive_speed: 0.18
+  position_tolerance: 0.04
+  heading_tolerance_deg: 3.5
+  settle_seconds: 1.0
+  vision_slow_age: 0.5
+  vision_stop_age: 1.0
+  max_position_sigma: 0.05
+  max_heading_sigma_deg: 15.0
+  footprint_margin: 0.015
+  planner_resolution: 0.035
+  planner_heading_deg: 10.0
+  planner_alpha_deg: 10.0
+  planner_max_nodes: 60000
+  horizon_steps: 12
+  horizon_dt: 0.15
+  episode_seconds: 180.0
+  rpc_timeout_seconds: 600.0
+evaluation:
+  position_tolerance: 0.05
+  heading_tolerance_deg: 5.0
+  stopped_speed: 0.01
+  stopped_yaw_rate_deg: 1.0
+  settle_seconds: 1.0
+  path_rms_tolerance: 0.05

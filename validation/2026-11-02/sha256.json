@@ -1,0 +1,8 @@
+{
+  "acceptance_final/summary.json": "e2a4842fe05f5239ca82ff8943e8c5adb18c7d81af968ee438c95a89452bc4c9",
+  "stress_final/summary.json": "69902e229c1a9aed0ed78b8e458853510952ea0c0eb2147be2fcd42ecc1d9acc",
+  "sensitivity_final/summary.json": "9b2eb1bfd8700afd77aa80341c441a36aaa021bc833968136958838a194a7f46",
+  "replay_validation/result.json": "dc60f19972d53f2e27429f30b961050e25509e15f5d92caf48ef11cde565b4ea",
+  "gui_soak/result.json": "0dbf01591e38e3f63c73997dadcbe4d6a3eceb6bf168d8caf4b8bb487f7d50aa",
+  "gui_validation/desktop.png": "9bc6d4ee2b63f8592bb2f34565fcb7654271ec2e6a3d05dc4bbc50495c8ac4fd"
+}

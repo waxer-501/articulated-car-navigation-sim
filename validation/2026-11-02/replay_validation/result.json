@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "messages": 104,
+  "before_sha256": "5cc8a66d8eaeda1c3e25c110c7b5d8c69dbb4122dd9b236a908aacb3016a9c0a",
+  "after_sha256": "5cc8a66d8eaeda1c3e25c110c7b5d8c69dbb4122dd9b236a908aacb3016a9c0a",
+  "modified_truth_rows": 104
+}

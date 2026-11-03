@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "artic-nav-sim"
+version = "0.1.0"
+description = "Independent articulated toy vehicle simulation with sensor-only navigation"
+requires-python = ">=3.10"
+dependencies = ["mujoco", "numpy", "scipy", "PySide6==6.8.3", "Pillow", "imageio", "imageio-ffmpeg", "PyYAML"]
+
+[project.scripts]
+artic-sim = "artic_nav.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["artic_nav*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

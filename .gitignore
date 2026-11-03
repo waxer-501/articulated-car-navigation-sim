@@ -1,0 +1,13 @@
+.venv/
+.runtime/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+runs/
+build/
+dist/
+.coverage
+.env
+.env.*
+core
+core.[0-9]*
