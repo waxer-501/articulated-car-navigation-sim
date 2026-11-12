@@ -1,0 +1,29 @@
+{
+  "scope": "stationary dual-IMU UART capture only; RF not validated",
+  "elapsed_host_s": 30.089955402000214,
+  "coherent_snapshots": 96,
+  "busy_snapshots_skipped": 148,
+  "invalid_snapshots": 0,
+  "observed_restarts": 0,
+  "debug_read_inconsistency_events": 50,
+  "sensors": {
+    "front": {
+      "observed_distinct_latest_samples": 96,
+      "valid_frame_counter_advance": 744,
+      "new_uart_errors": 0,
+      "new_queue_drops": 0,
+      "nominal_mcu_frame_rate_hz": 24.966442953020135,
+      "passed": true
+    },
+    "rear": {
+      "observed_distinct_latest_samples": 96,
+      "valid_frame_counter_advance": 745,
+      "new_uart_errors": 0,
+      "new_queue_drops": 0,
+      "nominal_mcu_frame_rate_hz": 25.0,
+      "passed": true
+    }
+  },
+  "passed": true,
+  "limitation": "SWD polls only the latest frame; unobserved intermediate frames are not radio packet loss. MCU time is nominal oscillator based, not IMU sample time."
+}

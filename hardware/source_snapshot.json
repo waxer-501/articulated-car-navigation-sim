@@ -1,0 +1,937 @@
+{
+  "snapshot_date": "2026-11-12",
+  "source_folder": "清扫小车实机",
+  "purpose": "Full maintained source, documents, project photos and selected non-secret physical validation records",
+  "excluded": [
+    "virtual environments and compiler caches",
+    "duplicate vendor SDKs/archives; pinned retrieval manifests provided",
+    "live monitor logs and device lock files",
+    "original full Flash backups/readbacks; SHA-256 and verification reports retained"
+  ],
+  "files": [
+    {
+      "source": "sweeper_hw/__init__.py",
+      "path": "sweeper_hw/__init__.py",
+      "bytes": 94,
+      "sha256": "8cb5e39905bd315eccd47488a7713e6618829aaed409da40da0f152429b3cffe"
+    },
+    {
+      "source": "sweeper_hw/f103_diagnostic.py",
+      "path": "sweeper_hw/f103_diagnostic.py",
+      "bytes": 2410,
+      "sha256": "4b481687711cbc87999fa7dbaf52817175062453b1e73bd229b06b3147fc0167"
+    },
+    {
+      "source": "sweeper_hw/imu406.py",
+      "path": "sweeper_hw/imu406.py",
+      "bytes": 4144,
+      "sha256": "2b1ca7e6b89f250f984ff32525907d6497d93f1b9dfc6fb22593f6e9e8914799"
+    },
+    {
+      "source": "sweeper_hw/inspect_capture.py",
+      "path": "sweeper_hw/inspect_capture.py",
+      "bytes": 2392,
+      "sha256": "b7f344a9c4dcb8e533d32b6fff66037fc7675eed26089d128b70f97ba60160ba"
+    },
+    {
+      "source": "sweeper_hw/monitor.py",
+      "path": "sweeper_hw/monitor.py",
+      "bytes": 8398,
+      "sha256": "9cee2eb037b1fbcbb0687b49acf3e00d0998bf8bcefc472c679e801a1178328f"
+    },
+    {
+      "source": "sweeper_hw/monitor_state.py",
+      "path": "sweeper_hw/monitor_state.py",
+      "bytes": 6543,
+      "sha256": "24e9ab78d90acffdf241966c99a8e69062db458393bcfb9a347f9a489d4d1914"
+    },
+    {
+      "source": "sweeper_hw/monitor_view.py",
+      "path": "sweeper_hw/monitor_view.py",
+      "bytes": 17424,
+      "sha256": "749ae3ca043f420f35604165436898cd75a78f60196c19bbf8811828d71fc643"
+    },
+    {
+      "source": "sweeper_hw/telemetry.py",
+      "path": "sweeper_hw/telemetry.py",
+      "bytes": 6281,
+      "sha256": "7cb5ac475119fdc368f3c0bac7cde551d6a0cb5b17a3641ddf65c6eb30d34ebe"
+    },
+    {
+      "source": "sweeper_hw/telemetry_stream.py",
+      "path": "sweeper_hw/telemetry_stream.py",
+      "bytes": 1212,
+      "sha256": "20d5849d81c36d6c328fa7a85130554661bd4dcdba69b1070f8a8802b0a63702"
+    },
+    {
+      "source": "sweeper_hw/usb_receiver.py",
+      "path": "sweeper_hw/usb_receiver.py",
+      "bytes": 3621,
+      "sha256": "759bea69906c72a3210f55215af86b6ee544c0f5e1a33dd6a59f9f82c3c343a7"
+    },
+    {
+      "source": "firmware/common/boot_journal.c",
+      "path": "firmware/common/boot_journal.c",
+      "bytes": 1403,
+      "sha256": "7934c5eddb035542ab9bff61df4fe617d41b5d5a83e50993375034a7eceea27f"
+    },
+    {
+      "source": "firmware/common/boot_journal.h",
+      "path": "firmware/common/boot_journal.h",
+      "bytes": 611,
+      "sha256": "af7bce6decaabe2302ecbada8c65a6da8e3b05d5f64f367ce416b88acefdd176"
+    },
+    {
+      "source": "firmware/common/imu406_decode.c",
+      "path": "firmware/common/imu406_decode.c",
+      "bytes": 1416,
+      "sha256": "b5116127dec7c38726ef9b45647f565d618c00640a5970151e75cf10bb631827"
+    },
+    {
+      "source": "firmware/common/imu406_decode.h",
+      "path": "firmware/common/imu406_decode.h",
+      "bytes": 715,
+      "sha256": "48f42a430240603946d6de9baa74bc950488f5c08fb08a363011e1ff291c5015"
+    },
+    {
+      "source": "firmware/common/imu406_stream.c",
+      "path": "firmware/common/imu406_stream.c",
+      "bytes": 1082,
+      "sha256": "537c8aa2064a3c33083c4a9642fa167a543903ef85dc15135609f6e8b73ee21a"
+    },
+    {
+      "source": "firmware/common/imu406_stream.h",
+      "path": "firmware/common/imu406_stream.h",
+      "bytes": 641,
+      "sha256": "f4fb2fcaad3e370b9f5a0f5ebd1abea12a8838502113fc77bc664556b8d647e9"
+    },
+    {
+      "source": "firmware/common/nrf24_tx.c",
+      "path": "firmware/common/nrf24_tx.c",
+      "bytes": 3833,
+      "sha256": "e39d02182e2e600b190917976906d556c0316b52cdf777964be4e2a1d87ab6df"
+    },
+    {
+      "source": "firmware/common/nrf24_tx.h",
+      "path": "firmware/common/nrf24_tx.h",
+      "bytes": 982,
+      "sha256": "be490c90ef57f40066c0480a9b3921ec1163673d9292cfaf4c3232436557dd92"
+    },
+    {
+      "source": "firmware/common/telemetry_v1.c",
+      "path": "firmware/common/telemetry_v1.c",
+      "bytes": 2087,
+      "sha256": "07dd9fcef0036b46e6437334eb547a12e254228919ed12c354ff21138cfa3200"
+    },
+    {
+      "source": "firmware/common/telemetry_v1.h",
+      "path": "firmware/common/telemetry_v1.h",
+      "bytes": 797,
+      "sha256": "2531607a7c67f4ebb18262d6420a7cf4e03e2a3b3232e3e22006fe8c66f4fad8"
+    },
+    {
+      "source": "firmware/f103_capture/linker.ld",
+      "path": "firmware/f103_capture/linker.ld",
+      "bytes": 912,
+      "sha256": "03eba2f5f1495a997e92cd64f1ac30ca667c9af4f9d9f9a08583f95713e70e8c"
+    },
+    {
+      "source": "firmware/f103_capture/main.c",
+      "path": "firmware/f103_capture/main.c",
+      "bytes": 8843,
+      "sha256": "8c15cd268890bbe21404243084bd0d4ec638c6ba40ddccf1b23e51f0b58729b0"
+    },
+    {
+      "source": "firmware/f103_radio/linker.ld",
+      "path": "firmware/f103_radio/linker.ld",
+      "bytes": 994,
+      "sha256": "b30eaf0e8e123b6dd175e8dd9b77fae38b4ca6df27a041810f7decfe19575a56"
+    },
+    {
+      "source": "firmware/f103_radio/radio_app.c",
+      "path": "firmware/f103_radio/radio_app.c",
+      "bytes": 6192,
+      "sha256": "1e481c92f5671e125039e6d1c54a4dd0ab69f8dd451beb976beeda2a3ab5f523"
+    },
+    {
+      "source": "firmware/f103_radio/radio_app.h",
+      "path": "firmware/f103_radio/radio_app.h",
+      "bytes": 353,
+      "sha256": "96a6aacc8d6c0ee8fccaec8f8d1f2e8461c8abe379c42c205067e53b9ecb7690"
+    },
+    {
+      "source": "configs/60-sweeper-stlink.rules",
+      "path": "configs/60-sweeper-stlink.rules",
+      "bytes": 200,
+      "sha256": "33ac2561e9981c9b7ab1345da4ca7f0c924a9bbb8ebb71daae03c0092df91ea7"
+    },
+    {
+      "source": "configs/f103_cmsis_sources.json",
+      "path": "configs/f103_cmsis_sources.json",
+      "bytes": 2481,
+      "sha256": "34fa690051a9270acc0aa16f10d030f0464dc193bd269540cc2eadb653647851"
+    },
+    {
+      "source": "configs/toolchain_packages.json",
+      "path": "configs/toolchain_packages.json",
+      "bytes": 3898,
+      "sha256": "9bb2970b3716e3041b9711b79f8a26b7404a05d32f9326d109a14586528d4e07"
+    },
+    {
+      "source": "configs/usb_radio_host.json",
+      "path": "configs/usb_radio_host.json",
+      "bytes": 2430,
+      "sha256": "ceacca5f7f705827625f9858f6ede2dceba5ccf09e0444a78de512eb040f749e"
+    },
+    {
+      "source": "docs/IMU通信监视使用.md",
+      "path": "docs/IMU通信监视使用.md",
+      "bytes": 5851,
+      "sha256": "d19feda1388b4ea384a542f22f78a1e569471f9455f376338cad1a9a22123bf9"
+    },
+    {
+      "source": "docs/f103双IMU实测_20261105.md",
+      "path": "docs/f103双IMU实测_20261105.md",
+      "bytes": 4698,
+      "sha256": "a7f6df3cd2b0d6a422a48ef1cb538d89b97738bc470dee9bba5d112f6c3fada7"
+    },
+    {
+      "source": "docs/f103无线回传实测结果_20261105.md",
+      "path": "docs/f103无线回传实测结果_20261105.md",
+      "bytes": 4762,
+      "sha256": "0ed3a4369fd76380e9e8d4c0fe06f80c4cd2265d49be93f8dcc644ecc53f098b"
+    },
+    {
+      "source": "docs/f103无线回传测试_20261105.md",
+      "path": "docs/f103无线回传测试_20261105.md",
+      "bytes": 7430,
+      "sha256": "74261043b018612b49660c72023f465f0377369a0a0fdb77e5d488673739789f"
+    },
+    {
+      "source": "docs/f103首次采集测试.md",
+      "path": "docs/f103首次采集测试.md",
+      "bytes": 6147,
+      "sha256": "3034c09abee16008d2e2aa0b71c0b709d2220ba7cde35dfe5e974b379c862afc"
+    },
+    {
+      "source": "docs/status_20261103.json",
+      "path": "docs/status_20261103.json",
+      "bytes": 714,
+      "sha256": "59af204b54b48c4e7355fcad89f16cc2ac26234dc4e1dbec7a45ff29dcf47b52"
+    },
+    {
+      "source": "docs/status_20261104.json",
+      "path": "docs/status_20261104.json",
+      "bytes": 1363,
+      "sha256": "951c637ce1510d12db46c78e813ac69f65837aa85a7431cf599dd25c33e15926"
+    },
+    {
+      "source": "docs/status_20261105.json",
+      "path": "docs/status_20261105.json",
+      "bytes": 5261,
+      "sha256": "cff412ad6472ae3994ccd87cbd9a54d5eecc6f36f045495bfbab3ad553de8e73"
+    },
+    {
+      "source": "docs/stm32f103c6接线.md",
+      "path": "docs/stm32f103c6接线.md",
+      "bytes": 5022,
+      "sha256": "aff79e0c74530567464121e9cd2c0a8e686acd9200f9f8d3a08dd7a9730af7ab"
+    },
+    {
+      "source": "docs/telemetry_v1.md",
+      "path": "docs/telemetry_v1.md",
+      "bytes": 5267,
+      "sha256": "764d54595e8b7159ec122f86fb13853eb17b8b95a9f3b384b1e2a29333214ae1"
+    },
+    {
+      "source": "docs/usb_radio_20261104.md",
+      "path": "docs/usb_radio_20261104.md",
+      "bytes": 5365,
+      "sha256": "3a6f69f5185dacd07a8c844217ab0ebbf7d27fe191992ec79947cce8ad0dd6d0"
+    },
+    {
+      "source": "docs/接线前确认.md",
+      "path": "docs/接线前确认.md",
+      "bytes": 3169,
+      "sha256": "57a11195590855b4b95d04fad59ca5ceed4f1cac1af8d83446ab1c434dee52f4"
+    },
+    {
+      "source": "tests/test_f103_diagnostic.py",
+      "path": "tests/test_f103_diagnostic.py",
+      "bytes": 2255,
+      "sha256": "ca4edf485e385b2b498566a95840fe10e57852117864407afc2e53a945c33f76"
+    },
+    {
+      "source": "tests/test_imu406.py",
+      "path": "tests/test_imu406.py",
+      "bytes": 6652,
+      "sha256": "d83ec251d8d7ddb8e7c0d83424425efeb7b15b8e6b27a349ea63454e8d3ef725"
+    },
+    {
+      "source": "tests/test_imu406_stream_c.py",
+      "path": "tests/test_imu406_stream_c.py",
+      "bytes": 3216,
+      "sha256": "e76b8e4aff15d6c3e6f24833c5f7706e63e48792064d0e736b9f964aeb9d12ee"
+    },
+    {
+      "source": "tests/test_monitor.py",
+      "path": "tests/test_monitor.py",
+      "bytes": 4273,
+      "sha256": "8946786c0cbcd4c125a40d71a521583ee14e8a7b3cfa23fd1eff37185bdc3000"
+    },
+    {
+      "source": "tests/test_radio_firmware.py",
+      "path": "tests/test_radio_firmware.py",
+      "bytes": 8281,
+      "sha256": "472ff16a240a464fbb8bd35e8192cfb9a844155c13ca64c4c511c2c12718c948"
+    },
+    {
+      "source": "tests/test_radio_report.py",
+      "path": "tests/test_radio_report.py",
+      "bytes": 2417,
+      "sha256": "203bd088b3aad800dee7df3b056ec6ae9834f6e738b8492cd0e0e469f070ae75"
+    },
+    {
+      "source": "tests/test_stlink_readonly.py",
+      "path": "tests/test_stlink_readonly.py",
+      "bytes": 3816,
+      "sha256": "941bbdce0fda711b925c03a0de0515afb8aa8576d8b2003d7163f1f85693ec14"
+    },
+    {
+      "source": "tests/test_telemetry.py",
+      "path": "tests/test_telemetry.py",
+      "bytes": 5941,
+      "sha256": "88ade0ad0a3aef036f132815d9412dcc72acaf7ad886de59fdf150c2293fd40a"
+    },
+    {
+      "source": "tests/test_telemetry_stream.py",
+      "path": "tests/test_telemetry_stream.py",
+      "bytes": 1242,
+      "sha256": "cd401178a1eda49e681b8e878b9f4baaeed19e34fdfd9112e9f8c1e5210b8204"
+    },
+    {
+      "source": "tools/build_f103_capture.py",
+      "path": "tools/build_f103_capture.py",
+      "bytes": 4158,
+      "sha256": "ea01c7be7a5bd2414d1beba9e4f93e9f818b85a182884eaed2cc45ddd9e4c4bd"
+    },
+    {
+      "source": "tools/check_usb_radio_link.py",
+      "path": "tools/check_usb_radio_link.py",
+      "bytes": 4357,
+      "sha256": "c79a26533d71afb8c228999caa7241d246911004446665bc145c958e00908f2c"
+    },
+    {
+      "source": "tools/check_usb_radio_telemetry.py",
+      "path": "tools/check_usb_radio_telemetry.py",
+      "bytes": 3325,
+      "sha256": "dbb4b5df0b5cd738fd165fc2ebb1b25dba0582d76968354ca7b42b15fb388426"
+    },
+    {
+      "source": "tools/enable_stlink_access.sh",
+      "path": "tools/enable_stlink_access.sh",
+      "bytes": 1026,
+      "sha256": "48a971cef124c47d98dd2ea157cd49f9b4f2b3527702fb142abe5d6f75720a5b"
+    },
+    {
+      "source": "tools/f103_swd.py",
+      "path": "tools/f103_swd.py",
+      "bytes": 8353,
+      "sha256": "376b68ec58ef004fa4be74e274a965980825e3fb6728e03bdb34fa8b32510030"
+    },
+    {
+      "source": "tools/fetch_f103_cmsis.py",
+      "path": "tools/fetch_f103_cmsis.py",
+      "bytes": 1020,
+      "sha256": "be6cc4fe0585a76e0ae7203c4d042612f946e839b134186f0efcf497a9bde524"
+    },
+    {
+      "source": "tools/fetch_toolchain.py",
+      "path": "tools/fetch_toolchain.py",
+      "bytes": 3056,
+      "sha256": "f5dc260814559713d2777c00bf025f2e8cf0fc00515de1394caca383d45405a3"
+    },
+    {
+      "source": "tools/fix_radio_usb.py",
+      "path": "tools/fix_radio_usb.py",
+      "bytes": 6845,
+      "sha256": "c8b0c4d28b273e8578fe9587a80bae1444f7d74bbfe4059389676e478b157a2d"
+    },
+    {
+      "source": "tools/flash_f103_capture.py",
+      "path": "tools/flash_f103_capture.py",
+      "bytes": 4683,
+      "sha256": "eb6b4492abc87e7de28b88e0d75128c71b7b44bf664ad443630d0c8c0dded482"
+    },
+    {
+      "source": "tools/stlink_readonly.c",
+      "path": "tools/stlink_readonly.c",
+      "bytes": 2619,
+      "sha256": "ce3a861da7be6b7686c2e53571e4d79bbe2d91039539c25b9eb481cae93826c0"
+    },
+    {
+      "source": "tools/stlink_target_probe.c",
+      "path": "tools/stlink_target_probe.c",
+      "bytes": 1276,
+      "sha256": "070b95b6e9e203bc235738cf9a99f1717ba10928525df28cef26ee6cc881c675"
+    },
+    {
+      "source": "tools/verify_f103_radio.py",
+      "path": "tools/verify_f103_radio.py",
+      "bytes": 8025,
+      "sha256": "7a5c40a69b4c23966fca87e8b287945b2d79a54b4dc2ada8e95b0992d3a06002"
+    },
+    {
+      "source": "validation/imu_monitor_replay.png",
+      "path": "validation/imu_monitor_replay.png",
+      "bytes": 149014,
+      "sha256": "60d7d52aa01ebbc6ba7dd444d9fdefa9f4aec3c4e142a59d857813a39dae9330"
+    },
+    {
+      "source": ".gitignore",
+      "path": ".gitignore",
+      "bytes": 72,
+      "sha256": "77c792930d01b540ae885e1507226f22850f0bd77c8bc1bec7838889d117910f"
+    },
+    {
+      "source": "README.md",
+      "path": "README.md",
+      "bytes": 10625,
+      "sha256": "c000f2bb311587fa5f505449700fb671772d2c88c8211d95e7b949cd16a7b4b2"
+    },
+    {
+      "source": "requirements.txt",
+      "path": "requirements.txt",
+      "bytes": 14,
+      "sha256": "0b81718d1cbe8a7696e45a9388c9205272b5e345cd79d0cf1ccfb7a9fd1925e9"
+    },
+    {
+      "source": "启动IMU监视.sh",
+      "path": "启动IMU监视.sh",
+      "bytes": 282,
+      "sha256": "a71fa5d061c81fe65eb28c8b74593a11372e514cd01cf3ba8f651cb5b31ce0a5"
+    },
+    {
+      "source": "安装实机环境.sh",
+      "path": "安装实机环境.sh",
+      "bytes": 761,
+      "sha256": "32fb1cf411a35a9f105bf64d2f9643e5a531d04426040d4f5fdd5e98222bce00"
+    },
+    {
+      "source": "3754002714IMU406 惯性测量单元.pdf",
+      "path": "3754002714IMU406 惯性测量单元.pdf",
+      "bytes": 1767149,
+      "sha256": "7f33ac06adef02df57198683295157a5f1f33d4fdfa25456a593cdd9a9273b14"
+    },
+    {
+      "source": "3755724803AS06-VTB07H收发一体测试底板使用说明.pdf",
+      "path": "3755724803AS06-VTB07H收发一体测试底板使用说明.pdf",
+      "bytes": 1257275,
+      "sha256": "001c69af7877bfdb93657d628b0b8cbe496c2223dbcd8f8740f005ab6f50a69c"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_28_57_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_28_57_Pro.jpg",
+      "bytes": 378558,
+      "sha256": "2925e481423869f3451fdc10ab0e6943f197ef75a33829a2c3c2c5e84634fbde"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_02_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_02_Pro.jpg",
+      "bytes": 380281,
+      "sha256": "a6192e4e3a01cc4f26c1ea2e308031928739bd165078e63116e2deb0d8f1ec50"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_08_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_08_Pro.jpg",
+      "bytes": 384031,
+      "sha256": "c153dbb1a9dfb66487a1ab8e4ed42ca41645856b3096c3ba6118ef22176da718"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_11_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_11_Pro.jpg",
+      "bytes": 382845,
+      "sha256": "ded95d81dc204f709bdeab30857311f146e7abc04ef284a2f5a95a6011af0416"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_16_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_16_Pro.jpg",
+      "bytes": 385479,
+      "sha256": "d2711787a84ba0ea2f2e5549299b6735582d0749bf6cf7a2278e1dc0f1c9da81"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_28_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_28_Pro.jpg",
+      "bytes": 387263,
+      "sha256": "570ff7e2797c7f11b8f633f6c5f6527dcb43c31b4d5154fc0c8b4db164aaac1f"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_32_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_32_Pro.jpg",
+      "bytes": 389714,
+      "sha256": "84d9fac4630b18c5b6f9d16c729fc0503def0cacf8a87365ed1bc0ef3dfa85b0"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_37_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_37_Pro.jpg",
+      "bytes": 389585,
+      "sha256": "fde44d213b881e16c7005694c150c8cf455bcb37b923edb5b9ebb96e2c0056bf"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_41_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_41_Pro.jpg",
+      "bytes": 389283,
+      "sha256": "ea21fc7116017a69916bba5fefcb436afa61760030fb472cc855ba4919026984"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_47_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_47_Pro.jpg",
+      "bytes": 386525,
+      "sha256": "a5729da167b3b695f0b2dc96fd9c46037f28ef465e1b27de23ee8cb69076902f"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_29_54_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_29_54_Pro.jpg",
+      "bytes": 389189,
+      "sha256": "cf071588695700c5d53bf62e78d2274132c3b09c8845dbc772464fd4937699f0"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_30_39_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_30_39_Pro.jpg",
+      "bytes": 388576,
+      "sha256": "fc842045608a09dc0170d66b0977588a47209ffed7d95573e44e742bd0db5743"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_30_45_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_30_45_Pro.jpg",
+      "bytes": 389985,
+      "sha256": "0d70b86ab8723a66cdf45f31bc546e531c0311b26ef52940083e369d58da746f"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_30_50_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_30_50_Pro.jpg",
+      "bytes": 390950,
+      "sha256": "4332d2fd2f500b71eb6675da8828e32c1e789d0ecc4ed4d3daad3ac8557fdd97"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_30_57_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_30_57_Pro.jpg",
+      "bytes": 389425,
+      "sha256": "49e82f0e062d4515c2cf09b24e4e3bccb743c25ba2c09eac126f6f19fd7a8382"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_06_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_06_Pro.jpg",
+      "bytes": 390035,
+      "sha256": "5a0fbf3900c34e0598bffe4cc4532e0a2e0b2d2b0568f9dfa920e748ec471e2e"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_12_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_12_Pro.jpg",
+      "bytes": 391035,
+      "sha256": "bdb92500b1ce9875cbfc032e82c91b1beb5a204bde1f4b172a98a46b62d45480"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_22_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_22_Pro.jpg",
+      "bytes": 387104,
+      "sha256": "64a7e0c1638708a6232baf581db76ae5106e261e59207b2eea43314de8566328"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_27_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_27_Pro.jpg",
+      "bytes": 385996,
+      "sha256": "c019d6234c2c6d30a60e6ca527d85c2bfe52a4002f4b6e79b8654e393bfbdd22"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_33_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_33_Pro.jpg",
+      "bytes": 381465,
+      "sha256": "cc9440416f3d0ab224ba6369b50eefac550aa951893285a0393f9582c1bdc6d5"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_39_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_39_Pro.jpg",
+      "bytes": 379323,
+      "sha256": "20c33e6be2f3d2514e24a59af42697de1daa95bf4a1c2b4743004ad3601aa668"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_52_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_52_Pro.jpg",
+      "bytes": 381998,
+      "sha256": "5a3d7535ab9f68e2497f8a2a91bcec231ecddb1f5bf7d7aa860ed6b7b2e5bef4"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_31_59_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_31_59_Pro.jpg",
+      "bytes": 393134,
+      "sha256": "c8ca40f0e32ddff11227369d6ed394c0d31fbd3231fb3e84964e28a16d67085a"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_06_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_06_Pro.jpg",
+      "bytes": 388497,
+      "sha256": "fcb8e524ae1c6b0060250a2732a503972603bc874da7070e7d573d7c170aa0b7"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_11_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_11_Pro.jpg",
+      "bytes": 392392,
+      "sha256": "0aa1543f1ffb4b1793be84abdcb445946f1a9ee01ad9ad0fc9bcb0ed1cb79dbc"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_16_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_16_Pro.jpg",
+      "bytes": 376035,
+      "sha256": "514fba185e287ecf4414fb721ada474fc6db7511f93c01ad9f80b7473c975847"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_21_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_21_Pro.jpg",
+      "bytes": 391950,
+      "sha256": "573563dac07459f31448d6834c0643384afc65caade2b4a5a6422885665f94ad"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_25_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_25_Pro.jpg",
+      "bytes": 382407,
+      "sha256": "bf7dc2a690c6d381478d0c4eccfbf4b816983822e71d90efe81f6a62cc1d7cfb"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_30_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_30_Pro.jpg",
+      "bytes": 377229,
+      "sha256": "47ca5019bb85901ba6f7c2a74fca42bd5bc7621473bd27314408982989564080"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_35_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_35_Pro.jpg",
+      "bytes": 391469,
+      "sha256": "58a0c2a3458aadfabf18b82e5ea0ee54b4be7c203b07c0067c5b5ebc5f6a6ca0"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_42_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_42_Pro.jpg",
+      "bytes": 384595,
+      "sha256": "fa1bab430bfb0208ea00cb5fd6274488e2905d2735c4eae876fd070244d7eaef"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_47_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_47_Pro.jpg",
+      "bytes": 379756,
+      "sha256": "48b1891de433c6f787248a08041cc997dbb57b9b43ac71d623f8c80991061e9a"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_53_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_53_Pro.jpg",
+      "bytes": 391177,
+      "sha256": "effb0896edfcc60d7bc85699e294627fa816ff752d671fc5b800743d888d313a"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_32_58_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_32_58_Pro.jpg",
+      "bytes": 382106,
+      "sha256": "7f2c431e233e8f356b3f71474f073f63cbf7b4734ed50e1a0ee7e6041adfe13a"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_03_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_03_Pro.jpg",
+      "bytes": 383217,
+      "sha256": "33275ea44a052dda9b2ee54a69ea4ecda5937a0974a3b5ff03bad28bcf0225ad"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_11_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_11_Pro.jpg",
+      "bytes": 392446,
+      "sha256": "07aa7c3c29631d0eefba803d369ed30e0b2e05f0fe1071dec54c5c81b16ffe38"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_18_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_18_Pro.jpg",
+      "bytes": 392694,
+      "sha256": "fbeee12272f4ed002ecf0c918b78ae2ab35c14e9cf4e5883726df08a8690d4e2"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_31_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_31_Pro.jpg",
+      "bytes": 487759,
+      "sha256": "d78d08ffd8cb5ba5d31c068243372c62e16273e1800d60354c1fb0772e4042a9"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_40_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_40_Pro.jpg",
+      "bytes": 383692,
+      "sha256": "7a9ffc5cd77b98b9189f43246d34bb393a0ffc4afb515178f7434d462d2e371c"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_55_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_55_Pro.jpg",
+      "bytes": 427964,
+      "sha256": "137f471cdaf7536b67c7a03c0029aa5f244b93a9e197a9992bd71318ab94e20f"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_33_58_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_33_58_Pro.jpg",
+      "bytes": 425074,
+      "sha256": "012a624e7b5bb39ea32c16a46b644897af2f60b6a8bb58db81e0a43034623889"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_34_02_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_34_02_Pro.jpg",
+      "bytes": 519428,
+      "sha256": "b6b1d1a729b2d41b99715bdf584ed2b316c548270ca545e1d47d97b12bcfc1aa"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_34_12_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_34_12_Pro.jpg",
+      "bytes": 396379,
+      "sha256": "fecfb276c9fe1e1e5723263509b75632c1180776c41ae30faf28d2eef78d118f"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_34_16_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_34_16_Pro.jpg",
+      "bytes": 395470,
+      "sha256": "4f83b7e1a289ae23f70b843c49ad11dba914c9651be25300d6948f74e603e36c"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_34_20_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_34_20_Pro.jpg",
+      "bytes": 394769,
+      "sha256": "3cf9e6dcc36799f6ca1e6a329097dc6bced3bb99c9fd9d7e372e9fd366258497"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_34_24_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_34_24_Pro.jpg",
+      "bytes": 396086,
+      "sha256": "2ba70318b7a9fe3d8a4922723da6912a728aaac7f08e5caa0335826b4e2d9b22"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_34_28_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_34_28_Pro.jpg",
+      "bytes": 395927,
+      "sha256": "25b2ab4b6232caf1528ad1eda17ec910ce6510bb4bc7fa19cd4902314763973a"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_35_10_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_35_10_Pro.jpg",
+      "bytes": 392454,
+      "sha256": "09128199a3e85b528373465d286fdae46be2b733c461759b49d2ada45ace5eb0"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_35_14_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_35_14_Pro.jpg",
+      "bytes": 392183,
+      "sha256": "4daec788402a6e963cceb5a0286354c5fdc6c83eaa964c2aecce46e3e699ef59"
+    },
+    {
+      "source": "高位卸载1/WIN_20261105_15_35_19_Pro.jpg",
+      "path": "assets/高位卸载1/WIN_20261105_15_35_19_Pro.jpg",
+      "bytes": 392660,
+      "sha256": "c9289efaebf972b8b1c7bafcedac4b2ed2ddce880b88a575d6501d71251305b1"
+    },
+    {
+      "source": "captures/f103_20261105/imu_first_capture/diagnostics.jsonl",
+      "path": "validation/2026-11-05/f103_20261105/imu_first_capture/diagnostics.jsonl",
+      "bytes": 193891,
+      "sha256": "01dee3608823d851f4023fbc4b964ad1ce375d37b6b3de8893a80be2e3b4d076"
+    },
+    {
+      "source": "captures/f103_20261105/imu_first_capture/measurements.json",
+      "path": "validation/2026-11-05/f103_20261105/imu_first_capture/measurements.json",
+      "bytes": 2057,
+      "sha256": "a7b8655cdd45891450fcd435bc2fd1a4e1a930ecf87786e886a0910795b96d31"
+    },
+    {
+      "source": "captures/f103_20261105/imu_first_capture/summary.json",
+      "path": "validation/2026-11-05/f103_20261105/imu_first_capture/summary.json",
+      "bytes": 942,
+      "sha256": "2c1d07de39ab5f79641cbd0507ae613950c7592b030779b5aabce0132fe5dcdc"
+    },
+    {
+      "source": "captures/f103_20261105/pre_flash_backup/backup.json",
+      "path": "validation/2026-11-05/f103_20261105/pre_flash_backup/backup.json",
+      "bytes": 274,
+      "sha256": "9530fd09d42087f8f732fbf41ddc117dd678eedf52d86d409faa89a11e7447c7"
+    },
+    {
+      "source": "captures/f103_20261105/readback_audit/backup.json",
+      "path": "validation/2026-11-05/f103_20261105/readback_audit/backup.json",
+      "bytes": 274,
+      "sha256": "7cb779f7cc369715429af00fd4174c11c881f62f0ded447ec30809e0cc27e10a"
+    },
+    {
+      "source": "captures/f103_20261105/verified_readback/backup.json",
+      "path": "validation/2026-11-05/f103_20261105/verified_readback/backup.json",
+      "bytes": 360,
+      "sha256": "d302a5cb39a0359ed93799825846d33874b205ede515f62dfd0889ae3de2c2dc"
+    },
+    {
+      "source": "captures/f103_flash/20261105T041657.378750Z/flash.log",
+      "path": "validation/2026-11-05/f103_flash/20261105T041657.378750Z/flash.log",
+      "bytes": 1276,
+      "sha256": "f00efbbb99b2ef9cfac6c46b31fd3f00b78cb59b6d5a1d6d3bef9ffe89acfe5d"
+    },
+    {
+      "source": "captures/f103_flash/20261105T041657.378750Z/result.json",
+      "path": "validation/2026-11-05/f103_flash/20261105T041657.378750Z/result.json",
+      "bytes": 401,
+      "sha256": "66440fcf029997b9ec606ffc265a41cdfbdf16d3d7c9fdfada4f4838da9238bb"
+    },
+    {
+      "source": "captures/f103_flash/20261105T041657.378750Z/verification_audit.json",
+      "path": "validation/2026-11-05/f103_flash/20261105T041657.378750Z/verification_audit.json",
+      "bytes": 572,
+      "sha256": "f12b3cc94666d2349d1bdabeef4e491370d936f9b0dab4027c353f50d1cf647b"
+    },
+    {
+      "source": "captures/f103_flash/20261105T044027.874015Z/flash.log",
+      "path": "validation/2026-11-05/f103_flash/20261105T044027.874015Z/flash.log",
+      "bytes": 1556,
+      "sha256": "18ba8d2dd19e5a17b07384249dc7c8872f0bdcc52c51b1c8f6a793b33bb26eeb"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/failure_report.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/failure_report.json",
+      "bytes": 870,
+      "sha256": "5eb11d0244c980e0540ca100645545e4df353e8f26800978124621ddae820398"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/flash_driver.log",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/flash_driver.log",
+      "bytes": 660,
+      "sha256": "220881c8d542957060109958a6b2932c8b8bbd7ec315b5a34770867ff6fe4883"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/receiver.log",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/receiver.log",
+      "bytes": 14484,
+      "sha256": "59dab7c564892a7bc9ed6883d79ff7615cc7fe8dcc5c45f795d3d1c44561723c"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/run_status.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/run_status.json",
+      "bytes": 138,
+      "sha256": "0caf3ccb69054ee16f88d4bb44f272ac93d3055e899adc6c9ce0be9efa943ee6"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/rx.jsonl",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/rx.jsonl",
+      "bytes": 14484,
+      "sha256": "59dab7c564892a7bc9ed6883d79ff7615cc7fe8dcc5c45f795d3d1c44561723c"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/serial.bin",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/serial.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "captures/f103_radio_20261105/first_run/target_probe_raw.log",
+      "path": "validation/2026-11-05/f103_radio_20261105/first_run/target_probe_raw.log",
+      "bytes": 854,
+      "sha256": "9324c3d85114f6d8fb4c0ca6a1482ca2238e0cd70e0847a3a20b92e2b7118e3a"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/final_diagnostic.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/final_diagnostic.json",
+      "bytes": 3164,
+      "sha256": "f073e5fd07793574127ebf507b37f2cbc70df06df5b398406fd2299488da7670"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/flash_readback/backup.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/flash_readback/backup.json",
+      "bytes": 360,
+      "sha256": "eadb29fddb78306032ace2b63271bb1f04db82f93fb1a65cf2f6252ebbdb7e0c"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/flash_verification.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/flash_verification.json",
+      "bytes": 518,
+      "sha256": "f5a3ee97a91f094e37aa0e0b4f3e1f3a03e2a3da45ced18299df0892936ace8b"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/receiver.log",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/receiver.log",
+      "bytes": 105969,
+      "sha256": "d6fd416eae1c04bc4a1da1ecc909eeab1daafc216795f959efc435122d3c6817"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/recovered_diagnostic.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/recovered_diagnostic.json",
+      "bytes": 3127,
+      "sha256": "9513b2bcaf23e3a695a6d946cb656860ba3cc984139af650f543a865c0bf4e3f"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/rx.jsonl",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/rx.jsonl",
+      "bytes": 157519,
+      "sha256": "8488b5277ebae1d7a7ba3ae51dcc711850926c152f4e5d733a22a92e1d4be749"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/serial.bin",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/serial.bin",
+      "bytes": 3200,
+      "sha256": "b51fde90654fca39514de239671a082565dc3caac468dea3fdf6c0a64f9a3980"
+    },
+    {
+      "source": "captures/f103_radio_20261105/power_cycle_recovery/summary.json",
+      "path": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/summary.json",
+      "bytes": 2844,
+      "sha256": "fcf7172130739cfced932d18a4a3bd08a9e085394dab551f2113d07396bf82bf"
+    },
+    {
+      "source": "captures/stlink_20261104/hotplug_probe.txt",
+      "path": "validation/2026-11-05/stlink_20261104/hotplug_probe.txt",
+      "bytes": 603,
+      "sha256": "a16aaa280eaf4e311380e43e8083813fe0f11b5a66ff920bf2a6eabbf8ca7666"
+    },
+    {
+      "source": "captures/usb_radio_20261104/content_and_size_probe.json",
+      "path": "validation/2026-11-05/usb_radio_20261104/content_and_size_probe.json",
+      "bytes": 1243,
+      "sha256": "e971f8d4039ef145959b503f70eba8ab47861c015669fe3555e6278b3c6f1a79"
+    },
+    {
+      "source": "captures/usb_radio_20261104/link_9600.json",
+      "path": "validation/2026-11-05/usb_radio_20261104/link_9600.json",
+      "bytes": 1004,
+      "sha256": "e7d31edb2abaf74663aab03387feabb1f5db75729652922d75c0b8e277a58f9e"
+    },
+    {
+      "source": "captures/usb_radio_20261104/link_9600_serial_mode.json",
+      "path": "validation/2026-11-05/usb_radio_20261104/link_9600_serial_mode.json",
+      "bytes": 969,
+      "sha256": "098bdc293f79cb1a86e83f7de5e7611e0611a077c9696862737ace4ff828d3a9"
+    },
+    {
+      "source": "captures/usb_radio_20261104/link_after_binary_failure.json",
+      "path": "validation/2026-11-05/usb_radio_20261104/link_after_binary_failure.json",
+      "bytes": 597,
+      "sha256": "55e50a90da8db6ae9d9ff498c887f29b1df3a1cb22693acd0d81154f862b45aa"
+    },
+    {
+      "source": "captures/usb_radio_20261104/synthetic_telemetry_roundtrip.json",
+      "path": "validation/2026-11-05/usb_radio_20261104/synthetic_telemetry_roundtrip.json",
+      "bytes": 520,
+      "sha256": "dc7392fa3a6083b22ec04d572f5b8c065330a73856ce2338eb3ddb153bd43bf0"
+    },
+    {
+      "source": "captures/usb_radio_20261104/synthetic_telemetry_roundtrip_300ms.json",
+      "path": "validation/2026-11-05/usb_radio_20261104/synthetic_telemetry_roundtrip_300ms.json",
+      "bytes": 2580,
+      "sha256": "3e769fbbf0e19f3eacc736f890146b03d7f9883628794a0e4e5491b7970ad49e"
+    },
+    {
+      "source": "references/README.md",
+      "path": "references/README.md",
+      "bytes": 1954,
+      "sha256": "579f6ba90c7fb81091a385be161793aac8e8e6199fa2e9b5dfbe3caf017123f7"
+    },
+    {
+      "source": "references/sources.json",
+      "path": "references/sources.json",
+      "bytes": 634,
+      "sha256": "15f4808f1c36f4609354250bda76326f829cee90a956ad55940071e9e05e1753"
+    }
+  ]
+}

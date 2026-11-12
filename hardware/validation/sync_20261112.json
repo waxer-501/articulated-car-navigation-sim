@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-12",
+  "scope": "software-only verification of repository copy; no USB opened, no firmware flashed, no physical tests repeated",
+  "python": "Python 3.10.12",
+  "unit_tests": {
+    "run": 70,
+    "passed": 70,
+    "skipped": 0,
+    "command": "/usr/bin/python3 -m unittest discover -s tests -v"
+  },
+  "firmware_rebuild": {
+    "capture": {
+      "bytes": 3776,
+      "sha256": "66e473fa7c2a1f3fa0f48f571cab969c22d9f80eb451574aebb2bc4461e23230",
+      "matches_physically_tested_image": true
+    },
+    "radio": {
+      "bytes": 6896,
+      "sha256": "68b93dba6b86ed65107a737ccfd6a3e21a4850fd781eab963f0f6110806b0ff5",
+      "matches_physically_tested_image": true
+    }
+  },
+  "stlink_readonly_helper": "built only; no device opened",
+  "dependencies": "8 SHA-256-pinned Ubuntu packages restored from local cache into fresh .toolchain; 10 CMSIS source files hash checked",
+  "replay_archive": "validation/2026-11-05/f103_radio_20261105/power_cycle_recovery/rx.jsonl"
+}

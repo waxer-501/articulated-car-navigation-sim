@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-03",
+  "scope": "two IMU406 -> one MC02 -> radio -> Raspberry Pi; telemetry only",
+  "bsp_url": "https://github.com/yssickjgd/damiao_mc02_bsp",
+  "bsp_commit": "30ff2965d55afbcad500027b0e1e5031ea6f93b8",
+  "imu_manual_sha256": "7f33ac06adef02df57198683295157a5f1f33d4fdfa25456a593cdd9a9273b14",
+  "offline_tests": 26,
+  "c_validation": "host compiler only; not ARM firmware build",
+  "real_imu_validated": false,
+  "radio_model_confirmed": false,
+  "radio_link_validated": false,
+  "firmware_flashed": false,
+  "vehicle_control_in_scope": false,
+  "unresolved": [
+    "radio exact model and RX role",
+    "existing wiring and free pins",
+    "Raspberry Pi model, OS, available SPI/GPIO"
+  ]
+}

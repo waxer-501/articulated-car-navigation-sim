@@ -1,0 +1,20 @@
+2026-11-05T12:43:36 ERROR common.c: Can not connect to target. Please use 'connect under reset' and try again
+chip_id=0x00000000 flash_bytes=0 core_id=0x00003748 voltage_tool_mV=3216
+status_rc=0 core_state=1
+addr=0xe0042000 rc=0 value=0x00000814
+addr=0xe000ed00 rc=0 value=0x00000814
+addr=0xe000edf0 rc=0 value=0x00000814
+addr=0xe000ed28 rc=0 value=0x00000814
+addr=0xe000ed2c rc=0 value=0x00000814
+addr=0xe000ed38 rc=0 value=0x00000814
+addr=0x40021000 rc=0 value=0x00000814
+addr=0x40021004 rc=0 value=0x00000814
+addr=0x40010804 rc=0 value=0x00000814
+addr=0x40010800 rc=0 value=0x00000814
+addr=0x40010004 rc=0 value=0x00000814
+addr=0x4002200c rc=0 value=0x00000814
+addr=0x40022010 rc=0 value=0x00000814
+addr=0x20000000 rc=0 value=0x00000814
+addr=0x08007800 rc=0 value=0x00000814
+addr=0x08007804 rc=0 value=0x00000814
+addr=0x08000000 rc=0 value=0x00000814

@@ -1,0 +1,7 @@
+{
+  "firmware_sha256": "66e473fa7c2a1f3fa0f48f571cab969c22d9f80eb451574aebb2bc4461e23230",
+  "backup_sha256": "9934561ee7908e77a8c90a88a9fb9d3ceaa5b8e9a069d539f5e28b9390da8f6b",
+  "readback_matches_image": true,
+  "flash_beyond_image_pages_preserved": false,
+  "record_directory": "/home/gyt/\u94bb\u63a2\u5c0f\u8f66/\u6e05\u626b\u5c0f\u8f66\u5b9e\u673a/captures/f103_flash/20261105T041657.378750Z"
+}

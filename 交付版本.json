@@ -34,5 +34,13 @@
     "runs/replay_validation/result.json",
     "runs/gui_soak/result.json"
   ],
-  "real_hardware_used": false
+  "real_hardware_used": false,
+  "scope": "Original simulation validation; hardware delivered separately under hardware/",
+  "hardware": {
+    "source_manifest": "hardware/source_snapshot.json",
+    "software_validation": "hardware/validation/sync_20261112.json",
+    "last_physical_validation": "2026-11-05",
+    "wireless_complete_packets": "100/100; front 50, rear 50; low rate bench test only",
+    "full_real_vehicle_navigation_verified": false
+  }
 }

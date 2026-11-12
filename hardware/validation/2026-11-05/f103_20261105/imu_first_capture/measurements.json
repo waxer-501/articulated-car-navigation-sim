@@ -1,0 +1,84 @@
+{
+  "front": {
+    "first_frame_count": 3555,
+    "last_frame_count": 4299,
+    "rejected_candidates_first": 0,
+    "rejected_candidates_last": 0,
+    "last_sample": {
+      "imu_address": 0,
+      "raw_hex": "681f008400092010094100983110016410015810097610000000000710000184",
+      "euler_deg": [
+        9.2,
+        -9.41,
+        98.31
+      ],
+      "accel_g": [
+        -0.164,
+        -0.158,
+        -0.976
+      ],
+      "gyro_deg_s": [
+        0.0,
+        0.07,
+        -0.01
+      ],
+      "si": {
+        "accel": [
+          -1.6082906,
+          -1.5494507,
+          -9.571290399999999
+        ],
+        "gyro": [
+          0.0,
+          0.0012217304763960308,
+          -0.00017453292519943296
+        ]
+      },
+      "axes": "sensor; mounting transform not applied"
+    },
+    "observed_accel_norm_g_min": 1.000267964097621,
+    "observed_accel_norm_g_max": 1.0041633333278008,
+    "note": "No mounting transform or independent physical accuracy reference; gravity magnitude is descriptive only"
+  },
+  "rear": {
+    "first_frame_count": 3555,
+    "last_frame_count": 4300,
+    "rejected_candidates_first": 0,
+    "rejected_candidates_last": 0,
+    "last_sample": {
+      "imu_address": 0,
+      "raw_hex": "681f00841023750010960112420001900003961008981000011000071000055d",
+      "euler_deg": [
+        -23.75,
+        10.96,
+        112.42
+      ],
+      "accel_g": [
+        0.19,
+        0.396,
+        -0.898
+      ],
+      "gyro_deg_s": [
+        -0.01,
+        -0.07,
+        -0.05
+      ],
+      "si": {
+        "accel": [
+          1.8632635,
+          3.8834334,
+          -8.8063717
+        ],
+        "gyro": [
+          -0.00017453292519943296,
+          -0.0012217304763960308,
+          -0.0008726646259971648
+        ]
+      },
+      "axes": "sensor; mounting transform not applied"
+    },
+    "observed_accel_norm_g_min": 0.9955691839344969,
+    "observed_accel_norm_g_max": 1.0045486548694393,
+    "note": "No mounting transform or independent physical accuracy reference; gravity magnitude is descriptive only"
+  }
+}

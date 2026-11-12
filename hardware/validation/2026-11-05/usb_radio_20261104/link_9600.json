@@ -1,0 +1,35 @@
+{
+  "time": "2026-11-04T16:52:48.382882+08:00",
+  "baud": 9600,
+  "tx": "/dev/serial/by-path/pci-0000:00:14.0-usb-0:1.4:1.0-port0",
+  "rx": "/dev/serial/by-path/pci-0000:00:14.0-usb-0:1.2:1.0-port0",
+  "direction": "TX -> RX only",
+  "configuration_commands_sent": false,
+  "vehicle_connected_by_this_program": false,
+  "results": [
+    {
+      "sent_ascii": "IMU0619C6000!",
+      "written": 13,
+      "received_hex": "61 73 68 69 6e 69 6e 67 61 73 68 69 6e 69 6e 67",
+      "marker_received": false,
+      "exact": false
+    },
+    {
+      "sent_ascii": "IMU0619C6001!",
+      "written": 13,
+      "received_hex": "61 73 68 69 6e 69 6e 67 61 73 68 69 6e 69 6e 67",
+      "marker_received": false,
+      "exact": false
+    },
+    {
+      "sent_ascii": "IMU0619C6002!",
+      "written": 13,
+      "received_hex": "61 73 68 69 6e 69 6e 67 61 73 68 69 6e 69 6e 67",
+      "marker_received": false,
+      "exact": false
+    }
+  ],
+  "baseline_rx_hex": "",
+  "passed": false,
+  "exact_transparency": false
+}

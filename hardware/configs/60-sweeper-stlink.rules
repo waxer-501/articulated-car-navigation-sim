@@ -1,0 +1,2 @@
+# ST-Link/V2 only. User gyt is already a member of plugdev.
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", GROUP="plugdev", MODE="0660", TAG+="uaccess"

@@ -1,0 +1,22 @@
+{
+  "time": "2026-11-04T16:59:01.895208+08:00",
+  "synthetic": true,
+  "real_imu_data": false,
+  "direction": "TX -> RX only",
+  "baud": 9600,
+  "fragment_bytes": 16,
+  "fragment_interval_s": 0.05,
+  "sent_frames": 20,
+  "sent_bytes": 640,
+  "baseline_rx_hex": "",
+  "received_bytes": 0,
+  "valid_frames": 0,
+  "exact_stream": false,
+  "exact_frame_order": false,
+  "invalid_frames": 0,
+  "discarded_bytes": 0,
+  "received_hex": "",
+  "received_sensor_ids": [],
+  "passed": false,
+  "wall_seconds": 2.8346235219996743
+}

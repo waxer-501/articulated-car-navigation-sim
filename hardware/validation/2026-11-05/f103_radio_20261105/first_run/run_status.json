@@ -1,0 +1,4 @@
+{
+  "phase": "failed: Firmware/verification failed; no automatic retry. Inspect flash_driver.log",
+  "host_monotonic_s": 3104.287215483
+}

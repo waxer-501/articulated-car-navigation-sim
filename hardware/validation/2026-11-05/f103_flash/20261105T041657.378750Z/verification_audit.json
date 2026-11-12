@@ -1,0 +1,10 @@
+{
+  "original_result_retained": "captures/f103_flash/20261105T041657.378750Z/result.json",
+  "verification_method": "three consecutive identical reads per 1024-byte block; no reflash, reset or halt",
+  "firmware_prefix_matches": true,
+  "flash_beyond_image_pages_preserved": true,
+  "verified_readback_sha256": "c5586cc11888dcd6a0a2d47a9145bf9f47809205e016813ecdf72a84b6dd2a6c",
+  "readback_evidence": "captures/f103_20261105/verified_readback",
+  "initial_readback_differing_bytes_beyond_image": 20,
+  "physical_cause_of_transient_debug_read_errors": "not established"
+}

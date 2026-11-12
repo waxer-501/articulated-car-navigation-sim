@@ -1,0 +1,46 @@
+{
+  "baud": 9600,
+  "baseline_rx_hex": "",
+  "results": [
+    {
+      "case": "ascii8",
+      "length": 8,
+      "sent_hex": "49 4d 55 30 30 30 30 31",
+      "received_hex": "49 4d 55 30 30 30 30 31",
+      "exact": true,
+      "wall_s": 0.23843852900017737
+    },
+    {
+      "case": "ascii15",
+      "length": 15,
+      "sent_hex": "49 4d 55 30 31 32 33 34 35 36 37 38 39 41 42",
+      "received_hex": "49 4d 55 30 31 32 33 34 35 36 37 38 39 41 42",
+      "exact": true,
+      "wall_s": 0.2191009209996082
+    },
+    {
+      "case": "ascii16",
+      "length": 16,
+      "sent_hex": "49 4d 55 30 31 32 33 34 35 36 37 38 39 41 42 43",
+      "received_hex": "49 4d 55 30 31 32 33 34 35 36 37 38 39 41 42 43",
+      "exact": true,
+      "wall_s": 0.22036980499979109
+    },
+    {
+      "case": "binary8",
+      "length": 8,
+      "sent_hex": "a6 11 00 00 ff 68 80 7f",
+      "received_hex": "a6 11 00 00 ff 68 80 7f",
+      "exact": true,
+      "wall_s": 0.21148215000039272
+    },
+    {
+      "case": "binary16",
+      "length": 16,
+      "sent_hex": "a6 11 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d",
+      "received_hex": "a6 11 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d",
+      "exact": true,
+      "wall_s": 0.21998768200000995
+    }
+  ]
+}

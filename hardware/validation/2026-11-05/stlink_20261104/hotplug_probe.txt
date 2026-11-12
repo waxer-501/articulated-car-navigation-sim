@@ -1,0 +1,13 @@
+Host: development PC
+Date: 2026-11-04 Asia/Shanghai
+Command: LD_LIBRARY_PATH="$PWD/.toolchain/usr/lib/x86_64-linux-gnu" .toolchain/usr/bin/st-info --probe --hot-plug --freq=100
+
+Found 1 stlink programmers
+  version:    V2J45S7
+  serial:     33FF72064243323456261357
+  flash:      32768 (pagesize: 1024)
+  sram:       10240
+  chipid:     0x0412
+  descr:      F1 Low-density device
+
+Probe completed successfully. No Flash erase/write or explicit reset requested. SRAM value is a tool report, not a destructive memory capacity test. Device ID does not identify the full package/temperature/suffix marking.

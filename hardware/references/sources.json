@@ -1,0 +1,15 @@
+{
+  "radio_archive": {
+    "url": "http://www.ashining.com.cn/data/as01_ml01d.zip",
+    "sha256": "cc0ddf53418bc004351c4af4a4eef3cd2e47cdce4ebae2f9f48fa6497f8e110e"
+  },
+  "historical_mc02_bsp": {
+    "url": "https://github.com/yssickjgd/damiao_mc02_bsp",
+    "commit": "30ff2965d55afbcad500027b0e1e5031ea6f93b8",
+    "current_f103_dependency": false
+  },
+  "local_manuals": {
+    "3754002714IMU406 惯性测量单元.pdf": "7f33ac06adef02df57198683295157a5f1f33d4fdfa25456a593cdd9a9273b14",
+    "3755724803AS06-VTB07H收发一体测试底板使用说明.pdf": "001c69af7877bfdb93657d628b0b8cbe496c2223dbcd8f8740f005ab6f50a69c"
+  }
+}

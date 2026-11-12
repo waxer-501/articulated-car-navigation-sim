@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "topology": "2 x IMU406 -> F103 SPI bare radio TX -> USB RX -> host (PC verified; Raspberry Pi pending)",
+  "roles_source": "User confirmed fixed TX-only/RX-only USB boards; TX unplug mapping on 2026-11-04",
+  "usb_vid": "1a86",
+  "usb_pid": "7523",
+  "rx": {
+    "usb_port": "1-1.2",
+    "path": "/dev/serial/by-path/pci-0000:00:14.0-usb-0:1.2:1.0-port0"
+  },
+  "tx": {
+    "usb_port": "1-1.4",
+    "path": "/dev/serial/by-path/pci-0000:00:14.0-usb-0:1.4:1.0-port0"
+  },
+  "baud_rate": 9600,
+  "baud_rate_verified": true,
+  "usb_carrier_model": "24L01P-RX / 24L01P-TX (user labels)",
+  "rf_channel": null,
+  "rf_address": null,
+  "air_rate": null,
+  "radio_payload_width": null,
+  "reverse_application_link": false,
+  "air_ack_behavior": "F103 pipe0 EN_AA=1; 200 hardware TX_DS fragments and 100 complete USB RX packets observed; no reverse application command channel",
+  "brltty_backup": "/var/backups/sweeper-radio-20261104-164147",
+  "uart_format": "8N1",
+  "tx_mode": "serial forwarding; manually selected by user after ashining fixed-mode observation",
+  "ascii_link_evidence": "captures/usb_radio_20261104/link_9600_serial_mode.json",
+  "application_fragment_limit_bytes": 16,
+  "fragment_limit_source": "manufacturer USB test-board manual, page 2; full carrier identity not independently queried",
+  "mapping_scope": "development PC USB connectors only; re-enumerate on Raspberry Pi",
+  "rx_readonly_application": true,
+  "initial_mode_evidence": "RX received ashining at 9600; custom marker test passed after user changed TX mode",
+  "reference_air_parameters": {
+    "source": "ZeYao STM8 reference values; F103 register readback and 100 real USB RX packets verified; USB RX internal registers not directly queried",
+    "channel": 60,
+    "air_rate_bps": 250000,
+    "address_hex_in_spi_order": "34 43 10 10 01",
+    "dynamic_payload": true,
+    "hardware_crc_bytes": 1,
+    "auto_ack_pipe0": true,
+    "verified_against_mc02": false,
+    "verified_against_f103_to_usb_rx": true,
+    "verification_evidence": "captures/f103_radio_20261105/power_cycle_recovery/summary.json"
+  },
+  "binary_transparency_verified": true,
+  "verified_fragment_interval_s": 0.3,
+  "binary_evidence": "captures/usb_radio_20261104/synthetic_telemetry_roundtrip_300ms.json",
+  "f103_verified_fragment_interval_s": 0.3,
+  "f103_real_imu_wireless_evidence": "captures/f103_radio_20261105/power_cycle_recovery/summary.json"
+}

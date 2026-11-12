@@ -1,0 +1,112 @@
+{
+  "mcu_uptime_ms": 48400,
+  "nominal_core_hz": 64000000,
+  "fault": 0,
+  "reset_flags": 201326592,
+  "sensors": {
+    "front": {
+      "rx_bytes": 37446,
+      "valid_frames": 1170,
+      "rejected_candidates": 0,
+      "uart_errors": 0,
+      "queue_drops": 0,
+      "max_queue_depth": 7,
+      "mcu_uart_rx_time_us": 48362202,
+      "latest_uart_bytes_hex": "100002100000100001a5681f00841001",
+      "sample": {
+        "imu_address": 0,
+        "raw_hex": "681f0084100188100797100051100138000032100993100002100000100001a5",
+        "euler_deg": [
+          -1.88,
+          -7.97,
+          -0.51
+        ],
+        "accel_g": [
+          -0.138,
+          0.032,
+          -0.993
+        ],
+        "gyro_deg_s": [
+          -0.02,
+          0.0,
+          -0.01
+        ],
+        "si": {
+          "accel": [
+            -1.3533177,
+            0.3138128,
+            -9.738003449999999
+          ],
+          "gyro": [
+            -0.00034906585039886593,
+            0.0,
+            -0.00017453292519943296
+          ]
+        },
+        "axes": "sensor; mounting transform not applied"
+      }
+    },
+    "rear": {
+      "rx_bytes": 37446,
+      "valid_frames": 1170,
+      "rejected_candidates": 0,
+      "uart_errors": 0,
+      "queue_drops": 0,
+      "max_queue_depth": 7,
+      "mcu_uart_rx_time_us": 48362189,
+      "latest_uart_bytes_hex": "10000100000410000306681f00840009",
+      "sample": {
+        "imu_address": 0,
+        "raw_hex": "681f008400093010078810000010013710016110098010000100000410000306",
+        "euler_deg": [
+          9.3,
+          -7.88,
+          0.0
+        ],
+        "accel_g": [
+          -0.137,
+          -0.161,
+          -0.98
+        ],
+        "gyro_deg_s": [
+          -0.01,
+          0.04,
+          -0.03
+        ],
+        "si": {
+          "accel": [
+            -1.34351105,
+            -1.57887065,
+            -9.610517
+          ],
+          "gyro": [
+            -0.00017453292519943296,
+            0.0006981317007977319,
+            -0.0005235987755982988
+          ]
+        },
+        "axes": "sensor; mounting transform not applied"
+      }
+    }
+  },
+  "radio": {
+    "profile": 2,
+    "boot_id": 2,
+    "state": 1,
+    "fragments_ok": 144,
+    "fragments_failed": 0,
+    "packets_completed": 72,
+    "encode_errors": 0,
+    "spi_errors": 0,
+    "end_ms": 65000,
+    "packets_started": 72,
+    "last_status": 46,
+    "readback_config_channel_rf_feature": 119946250,
+    "readback_en_aa_aw_dynpd": 66305,
+    "fragment_gap_us": 300000,
+    "init_error": 0,
+    "start_ms": 5000
+  },
+  "raw_snapshot_hex": "494d44310100000000010000b48ae2aa10bd00000090d003000000000000000c4692000092040000000000000000000000000000daf2e1024692000007000000681f0084100188100797100051100138000032100993100002100000100001a5681f00841001100002100000100001a54692000092040000000000000000000000000000cdf2e1024692000007000000681f008400093010078810000010013710016110098010000100000410000306681f00840009100001000004100003060200000002000000010000009000000000000000480000000000000000000000e8fd0000480000002e0000000a3c260701030100e09304000000000088130000",
+  "host_monotonic_s": 3621.5667694
+}

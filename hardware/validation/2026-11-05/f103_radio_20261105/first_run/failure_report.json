@@ -1,0 +1,16 @@
+{
+  "status": "failed; written image verified by st-flash, post-reset debug connection unavailable",
+  "accepted_radio_packets": 0,
+  "received_serial_bytes": 0,
+  "target_chip_id_after_reset": "0x0000",
+  "firmware_sha256": "68b93dba6b86ed65107a737ccfd6a3e21a4850fd781eab963f0f6110806b0ff5",
+  "flash_record": "captures/f103_flash/20261105T044027.874015Z",
+  "automatic_reflash_performed": false,
+  "usb_protocol_reset_stlink_only_attempted": true,
+  "read_only_low_clock_50khz_probe_restored_connection": false,
+  "user_power_indicator_observation": "MCU board red light on; IMU lights on",
+  "stlink_reported_voltage_mv": 3216,
+  "voltage_limitation": "ST-Link report, not an independent board 3.3V rail measurement",
+  "root_cause": "not established",
+  "next_step": "user-triggered full power cycle; passive RX collector already open in separate recovery folder"
+}

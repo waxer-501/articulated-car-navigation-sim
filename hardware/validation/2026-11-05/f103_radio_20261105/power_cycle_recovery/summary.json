@@ -1,0 +1,105 @@
+{
+  "scope": "real dual IMU -> F103 SPI radio -> USB RX -> this PC; stationary test",
+  "raw_bytes": 3200,
+  "accepted_packets": 100,
+  "mcu_completed_packets": 100,
+  "wire_recheck_errors": 0,
+  "wrong_boot_packets": 0,
+  "stream_invalid_frames": 0,
+  "stream_discarded_bytes": 0,
+  "radio_final": {
+    "profile": 2,
+    "boot_id": 2,
+    "state": 4,
+    "fragments_ok": 200,
+    "fragments_failed": 0,
+    "packets_completed": 100,
+    "encode_errors": 0,
+    "spi_errors": 0,
+    "end_ms": 65000,
+    "packets_started": 100,
+    "last_status": 46,
+    "readback_config_channel_rf_feature": 119946250,
+    "readback_en_aa_aw_dynpd": 66305,
+    "fragment_gap_us": 300000,
+    "init_error": 0,
+    "start_ms": 5000
+  },
+  "sensors": {
+    "front": {
+      "packets": 50,
+      "active_receive_hz": 0.8293526435395442,
+      "first_sequence": 86,
+      "last_sequence": 1565,
+      "source_frame_gaps_including_downsampling": 1430,
+      "last_measurements": {
+        "euler_deg": [
+          -1.91,
+          -7.99,
+          -0.51
+        ],
+        "accel_m_s2": [
+          -1.3631243499999999,
+          0.32361945,
+          -9.73800345
+        ],
+        "gyro_rad_s": [
+          -0.00034906585039886593,
+          0.0008726646259971648,
+          0.0005235987755982988
+        ]
+      }
+    },
+    "rear": {
+      "packets": 50,
+      "active_receive_hz": 0.8279457391536775,
+      "first_sequence": 101,
+      "last_sequence": 1580,
+      "source_frame_gaps_including_downsampling": 1430,
+      "last_measurements": {
+        "euler_deg": [
+          9.31,
+          -7.87,
+          0.0
+        ],
+        "accel_m_s2": [
+          -1.3435110499999998,
+          -1.5690639999999998,
+          -9.610517
+        ],
+        "gyro_rad_s": [
+          -0.00017453292519943296,
+          -0.0005235987755982988,
+          0.00017453292519943296
+        ]
+      }
+    }
+  },
+  "limitation": "Source sequence increments at each valid IMU frame. Gaps include deliberate latest-only downsampling, not a radio loss measurement. RF packet delivery is compared separately to MCU completed packet count. Raspberry Pi is not part of this test.",
+  "passed": true,
+  "recovery": "user-triggered complete power cycle, no reflash",
+  "raw_serial_file_bytes": 3200,
+  "raw_serial_sha256": "b51fde90654fca39514de239671a082565dc3caac468dea3fdf6c0a64f9a3980",
+  "source_capture_nominal_hz_between_diagnostics": {
+    "front": 25.0,
+    "rear": 25.0
+  },
+  "final_uart_diagnostics": {
+    "front": {
+      "rx_bytes": 80160,
+      "valid_frames": 2505,
+      "rejected_candidates": 0,
+      "uart_errors": 0,
+      "queue_drops": 0,
+      "max_queue_depth": 7
+    },
+    "rear": {
+      "rx_bytes": 80160,
+      "valid_frames": 2505,
+      "rejected_candidates": 0,
+      "uart_errors": 0,
+      "queue_drops": 0,
+      "max_queue_depth": 7
+    }
+  }
+}

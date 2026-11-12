@@ -1,0 +1,16 @@
+{
+  "firmware_sha256": "68b93dba6b86ed65107a737ccfd6a3e21a4850fd781eab963f0f6110806b0ff5",
+  "firmware_prefix_matches": true,
+  "preserved_middle_range_bytes": [
+    7168,
+    30720
+  ],
+  "middle_flash_preserved": true,
+  "boot_journal_valid_ids": [
+    1,
+    2
+  ],
+  "full_readback_sha256": "7bf04e50f64c3336f16adb161143b5ef371a7471cadcacee8a90e40f7915064a",
+  "readback_method": "three consecutive matching reads per 1KiB block; no halt or reset",
+  "recovery": "user power cycle; no additional firmware write"
+}

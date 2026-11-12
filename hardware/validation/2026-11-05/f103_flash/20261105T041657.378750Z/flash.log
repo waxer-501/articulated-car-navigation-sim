@@ -1,0 +1,16 @@
+st-flash 1.7.0
+2026-11-05T12:17:01 INFO common.c: F1 Low-density device: 10 KiB SRAM, 32 KiB flash in at least 1 KiB pages.
+file /home/gyt/钻探小车/清扫小车实机/build/f103_capture/f103_capture.bin md5 checksum: 501d186c9ad61c93872ec9e2345fd8eb, stlink checksum: 0x00059265
+2026-11-05T12:17:01 INFO common.c: Attempting to write 3776 (0xec0) bytes to stm32 address: 134217728 (0x8000000)
+2026-11-05T12:17:01 INFO common.c: Flash page at addr: 0x08000000 erased
+2026-11-05T12:17:01 INFO common.c: Flash page at addr: 0x08000400 erased
+2026-11-05T12:17:01 INFO common.c: Flash page at addr: 0x08000800 erased
+2026-11-05T12:17:01 INFO common.c: Flash page at addr: 0x08000c00 erased
+2026-11-05T12:17:01 INFO common.c: Finished erasing 4 pages of 1024 (0x400) bytes
+2026-11-05T12:17:02 INFO common.c: Starting Flash write for VL/F0/F3/F1_XL
+2026-11-05T12:17:02 INFO flash_loader.c: Successfully loaded flash loader in sram
+2026-11-05T12:17:02 INFO flash_loader.c: Clear DFSR
+  1/  4 pages written  2/  4 pages written  3/  4 pages written  4/  4 pages written
+2026-11-05T12:17:03 INFO common.c: Starting verification of write complete
+2026-11-05T12:17:03 INFO common.c: Flash written and verified! jolly good!
+2026-11-05T12:17:03 WARN common.c: NRST is not connected

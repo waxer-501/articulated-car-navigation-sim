@@ -1,0 +1,85 @@
+{
+  "platform": "Ubuntu 22.04 x86_64",
+  "packages": [
+    {
+      "package": "binutils-arm-none-eabi",
+      "version": "2.38-3ubuntu1+15build1",
+      "filename": "binutils-arm-none-eabi_2.38-3ubuntu1+15build1_amd64.deb",
+      "sha256": "5b2e7d51d169b4e48f25d0d3792be97a4c8409c07d49e78bca929c532d95816d",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/b/binutils-arm-none-eabi/binutils-arm-none-eabi_2.38-3ubuntu1+15build1_amd64.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/b/binutils-arm-none-eabi/binutils-arm-none-eabi_2.38-3ubuntu1+15build1_amd64.deb"
+      ]
+    },
+    {
+      "package": "gcc-arm-none-eabi",
+      "version": "15:10.3-2021.07-4",
+      "filename": "gcc-arm-none-eabi_15%3a10.3-2021.07-4_amd64.deb",
+      "sha256": "236c000f69d94897c3ca9bea619152030b879156f1018be3753d2b9f1a27fd33",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-arm-none-eabi/gcc-arm-none-eabi_10.3-2021.07-4_amd64.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/g/gcc-arm-none-eabi/gcc-arm-none-eabi_10.3-2021.07-4_amd64.deb"
+      ]
+    },
+    {
+      "package": "libnewlib-arm-none-eabi",
+      "version": "3.3.0-1.3",
+      "filename": "libnewlib-arm-none-eabi_3.3.0-1.3_all.deb",
+      "sha256": "20a3900b6513496f476e959fe313ee339049fea0f298ac4d5daa0ea5c642fa58",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/n/newlib/libnewlib-arm-none-eabi_3.3.0-1.3_all.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/n/newlib/libnewlib-arm-none-eabi_3.3.0-1.3_all.deb"
+      ]
+    },
+    {
+      "package": "libnewlib-dev",
+      "version": "3.3.0-1.3",
+      "filename": "libnewlib-dev_3.3.0-1.3_all.deb",
+      "sha256": "73d10595a2f26c6d663a855b5ee0e9717688313536c0083883576deba0763bf3",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/n/newlib/libnewlib-dev_3.3.0-1.3_all.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/n/newlib/libnewlib-dev_3.3.0-1.3_all.deb"
+      ]
+    },
+    {
+      "package": "libstlink-dev",
+      "version": "1.7.0+ds-1",
+      "filename": "libstlink-dev_1.7.0+ds-1_amd64.deb",
+      "sha256": "ead4a8ee55d2a062f0b98a76f0b43310f126fef0e658ac0e442715f1338a84e5",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/s/stlink/libstlink-dev_1.7.0+ds-1_amd64.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/s/stlink/libstlink-dev_1.7.0+ds-1_amd64.deb"
+      ]
+    },
+    {
+      "package": "libstlink1",
+      "version": "1.7.0+ds-1",
+      "filename": "libstlink1_1.7.0+ds-1_amd64.deb",
+      "sha256": "6649b93a19d6550497c59c3d8694649ba4da92a405b213188dc809df9b4fc43a",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/s/stlink/libstlink1_1.7.0+ds-1_amd64.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/s/stlink/libstlink1_1.7.0+ds-1_amd64.deb"
+      ]
+    },
+    {
+      "package": "stlink-tools",
+      "version": "1.7.0+ds-1",
+      "filename": "stlink-tools_1.7.0+ds-1_amd64.deb",
+      "sha256": "ab55024589854191bdfe5065fa973b34d6c7b6b2c185bc762c810e48f1f1aa9b",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/universe/s/stlink/stlink-tools_1.7.0+ds-1_amd64.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/universe/s/stlink/stlink-tools_1.7.0+ds-1_amd64.deb"
+      ]
+    },
+    {
+      "package": "libusb-1.0-0-dev",
+      "version": "2:1.0.25-1ubuntu2",
+      "filename": "libusb-1.0-0-dev_1.0.25-1ubuntu2_amd64.deb",
+      "sha256": "69e6c1d1436a64623020359253b82b8c5940d2b574179ef42138781040defe17",
+      "urls": [
+        "https://archive.ubuntu.com/ubuntu/pool/main/libu/libusb-1.0/libusb-1.0-0-dev_1.0.25-1ubuntu2_amd64.deb",
+        "https://old-releases.ubuntu.com/ubuntu/pool/main/libu/libusb-1.0/libusb-1.0-0-dev_1.0.25-1ubuntu2_amd64.deb"
+      ]
+    }
+  ]
+}

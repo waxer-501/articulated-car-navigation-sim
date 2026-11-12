@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-04",
+  "scope": "dual IMU telemetry only; fixed TX -> RX application roles",
+  "roles_physically_mapped": true,
+  "usb_serial_conflict_fixed": true,
+  "uart_baud_verified": 9600,
+  "usb_ascii_link_passed": true,
+  "usb_binary_link_passed": true,
+  "verified_binary_condition": {
+    "fragment_bytes": 16,
+    "fragment_interval_s": 0.3,
+    "frames": 20,
+    "bytes": 640
+  },
+  "failed_binary_condition": {
+    "fragment_interval_s": 0.05,
+    "received_frames": 0
+  },
+  "real_imu_validated": false,
+  "mc02_to_rx_radio_validated": false,
+  "firmware_flashed": false,
+  "raspberry_pi_receiver_deployed": false,
+  "offline_tests": 30,
+  "pending_decision": "none for initial capture; final sample rate deferred by user",
+  "active_controller": "STM32F103C6T6A (user reported; SWD reports F1 low-density, device ID 0x0412, 32 KiB Flash)",
+  "previous_controller": "DM-MC02 (superseded)",
+  "stlink_usb_enumerated": true,
+  "stlink_usb_id": "0483:3748",
+  "stlink_usb_access": true,
+  "swd_target_verified": true,
+  "next_step": "prepare independent F103C6 firmware and verify wiring; no flashing authorized or performed",
+  "stlink_firmware": "V2J45S7",
+  "target_chip_id": "0x0412",
+  "target_flash_bytes": 32768,
+  "target_flash_page_bytes": 1024,
+  "target_sram_bytes_reported_by_tool": 10240,
+  "sram_capacity_physically_tested": false
+}

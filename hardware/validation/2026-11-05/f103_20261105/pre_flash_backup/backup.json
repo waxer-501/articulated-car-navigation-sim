@@ -1,0 +1,10 @@
+{
+  "serial": "33FF72064243323456261357",
+  "chip_id": "0x0412",
+  "bytes": 32768,
+  "address": "0x08000000",
+  "sha256": "9934561ee7908e77a8c90a88a9fb9d3ceaa5b8e9a069d539f5e28b9390da8f6b",
+  "read_only": true,
+  "halt_or_reset_requested": false,
+  "all_erased_ff": false
+}

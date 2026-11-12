@@ -1,0 +1,16 @@
+{
+  "action": "FLASH AND RESET",
+  "serial": "33FF72064243323456261357",
+  "target": "0x0412 / 32 KiB",
+  "binary_bytes": 6896,
+  "image_sha256": "68b93dba6b86ed65107a737ccfd6a3e21a4850fd781eab963f0f6110806b0ff5",
+  "pages_to_replace": 7,
+  "boot_journal": {
+    "offset": 30720,
+    "bytes": 2048,
+    "purpose": "per-device boot ID; app writes one 8-byte record each boot"
+  },
+  "profile": "dual IMU RX; no IMU commands; real IMU telemetry RF TX, nominal seconds 5..65 after boot"
+}
+2026-11-05T12:40:57 ERROR common.c: Can not connect to target. Please use 'connect under reset' and try again
+Cannot reconnect for verification; do not reflash automatically
