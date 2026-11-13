@@ -54,13 +54,42 @@ def batch(cfg, suite="acceptance", jobs=2, output=None):
             tasks.append((f"blackout_{seed}", local, [.45, .15, np.pi/4], False, (3., 6.)))
             tasks.append((f"curve_{seed}", deepcopy(local), None, True, None))
         tasks.append(("unreachable", deepcopy(cfg), [.99, .99, 0.], False, None))
-    else:
+    elif suite == "steering":
+        # Only hidden plant parameters vary; public prediction/controller priors
+        # stay identical. Include both steering directions and a reversed start.
+        plants = {
+            "slow_left": {"steer_left_rate_deg": 18., "steer_right_rate_deg": 48.,
+                          "steer_exponent": 1.6, "steer_deadzone": .12},
+            "slow_right_delay": {"steer_left_rate_deg": 48., "steer_right_rate_deg": 22.,
+                                 "actuator_delay": .15},
+            "weak_both": {"steer_left_rate_deg": 18., "steer_right_rate_deg": 20.,
+                          "steer_torque": .24},
+            "fast_load_drift": {"steer_left_rate_deg": 48., "steer_right_rate_deg": 55.,
+                                "steer_angle_loss": .35, "steer_drift_fraction": .20},
+        }
+        for name, plant in plants.items():
+            for seed in range(2):
+                for case in ("left_turn", "right_turn"):
+                    _, initial, goal = next(row for row in CASES if row[0] == case)
+                    local = deepcopy(cfg)
+                    local["seed"] = seed
+                    local["physics"].update(plant)
+                    local["physics"]["initial_pose"] = [*initial[:2], *np.deg2rad(initial[2:]).tolist()]
+                    tasks.append((f"{name}_{case}_{seed}", local, [*goal[:2], float(np.deg2rad(goal[2]))], False, None))
+        for seed in range(3):
+            local = deepcopy(cfg)
+            local["seed"] = seed
+            tasks.append((f"curve_{seed}", local, None, True, None))
+        tasks.append(("blackout", deepcopy(cfg), [.45, .15, np.pi/4], False, (3., 6.)))
+    elif suite == "sensitivity":
         for parameter, values in (("mass", [.7, 1.3]), ("friction", [.45, 1.1]),
                                   ("drive_torque", [.028, .042]), ("actuator_delay", [.03, .15])):
             for value in values:
                 local = deepcopy(cfg)
                 local["physics"][parameter] = value
                 tasks.append((f"{parameter}_{value}", local, [.45, .15, np.pi/4], False, None))
+    else:
+        raise ValueError("Unknown validation suite")
     reports = {}
     with ProcessPoolExecutor(max_workers=jobs) as pool:
         futures = {pool.submit(_job, local, goal, root/name, curve, blackout): name

@@ -1,0 +1,27 @@
+{
+  "success": false,
+  "reason": "planning_failed",
+  "navigator_mode": "failed",
+  "failure_causes": [
+    "navigator_did_not_complete",
+    "true_position_outside_tolerance",
+    "true_front_heading_outside_tolerance",
+    "true_pose_and_stop_not_stable_for_one_second"
+  ],
+  "navigator_status": "起点完整车身距离边界过近",
+  "position_error_m": 0.19863710764879122,
+  "front_heading_error_deg": 22.131731053576644,
+  "stable_duration_s": 0.0,
+  "boundary_ok": true,
+  "max_absolute_extent_m": 0.9759945629222258,
+  "articulation_ok": true,
+  "max_articulation_deg": 39.90959118887172,
+  "path_rms_m": 0.07382042312306918,
+  "position_estimation_rms_m": 0.005796375978670254,
+  "sim_time_s": 22.20000000000213,
+  "seed": 2,
+  "profile": "nominal",
+  "curve": false,
+  "scope": "simulation only; synthetic detector; unknown toy actuator parameters",
+  "wall_time_s": 98.53674559099818
+}

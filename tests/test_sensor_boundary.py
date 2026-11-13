@@ -1,4 +1,5 @@
 import sys
+from copy import deepcopy
 import numpy as np
 import pytest
 from artic_nav.config import load_config, public_config
@@ -53,7 +54,9 @@ def test_navigation_is_independent_of_evaluation_truth():
         if i % 40 == 39:
             messages.append(packets)
             packets = []
-    first, second = NavigationProcess(cfg), NavigationProcess(cfg)
+    other_plant = deepcopy(cfg)
+    other_plant["physics"].update(steer_left_rate_deg=8., steer_right_rate_deg=70., steer_deadzone=.2)
+    first, second = NavigationProcess(cfg), NavigationProcess(other_plant)
     try:
         for i, packets in enumerate(messages):
             action = "goal" if i == 0 else None
@@ -66,6 +69,10 @@ def test_navigation_is_independent_of_evaluation_truth():
             assert result_a == result_b
         assert result_a["estimate"] is not None
         assert result_a["mode"] == "running"
+        # Camera time advances while the IMU/EKF integration clock freezes.
+        missing_imu = first.request([{"kind": "camera", "time": result_a["time"]+.3, "detections": []}])
+        assert missing_imu["command"] == [0., 0.]
+        assert not missing_imu["steering_feedback"]["fresh"]
     finally:
         first.close()
         second.close()

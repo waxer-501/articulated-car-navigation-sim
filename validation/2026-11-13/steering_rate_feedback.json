@@ -1,0 +1,79 @@
+{
+  "scope": "MuJoCo sensor-only articulation rate tracking; gyro samples only to feedback; truth scoring only",
+  "date": "2026-11-13",
+  "criterion": "RMS below 4 deg/s and at least 35 percent lower than nominal linear open-loop conversion; both sides learned",
+  "cases": [
+    {
+      "hidden_plant_overrides": {},
+      "open_loop_rate_rms_deg_s": 5.460017340023722,
+      "feedback_rate_rms_deg_s": 1.3592762998100802,
+      "error_reduction_fraction": 0.7510490873634891,
+      "learned_response": {
+        "rate_estimate": -2.558114025011249e-07,
+        "target_rate": 0.0,
+        "remote_value": 0.5,
+        "fresh": true,
+        "observation_time": 22.800000000002438,
+        "positive_alpha_gain": 0.20072444174346127,
+        "negative_alpha_gain": 0.2723693847832505,
+        "gain_updates": [
+          33,
+          29
+        ],
+        "integral": 0.0
+      },
+      "final_true_alpha_deg": -9.36025044333552
+    },
+    {
+      "hidden_plant_overrides": {
+        "steer_left_rate_deg": 18.0,
+        "steer_right_rate_deg": 48.0,
+        "steer_exponent": 1.6,
+        "steer_deadzone": 0.12
+      },
+      "open_loop_rate_rms_deg_s": 7.337067594933921,
+      "feedback_rate_rms_deg_s": 3.4913175336186595,
+      "error_reduction_fraction": 0.5241535547485844,
+      "learned_response": {
+        "rate_estimate": -4.0492373471151593e-07,
+        "target_rate": 0.0,
+        "remote_value": 0.5,
+        "fresh": true,
+        "observation_time": 22.800000000002438,
+        "positive_alpha_gain": 0.18265125021628473,
+        "negative_alpha_gain": 0.21727557421952515,
+        "gain_updates": [
+          36,
+          18
+        ],
+        "integral": 0.0
+      },
+      "final_true_alpha_deg": -14.572275126214741
+    },
+    {
+      "hidden_plant_overrides": {
+        "steer_left_rate_deg": 48.0,
+        "steer_right_rate_deg": 22.0,
+        "actuator_delay": 0.15
+      },
+      "open_loop_rate_rms_deg_s": 5.5786388522936825,
+      "feedback_rate_rms_deg_s": 3.3063802999502157,
+      "error_reduction_fraction": 0.4073141518041121,
+      "learned_response": {
+        "rate_estimate": 2.0577490393760276e-07,
+        "target_rate": 0.0,
+        "remote_value": 0.5,
+        "fresh": true,
+        "observation_time": 22.800000000002438,
+        "positive_alpha_gain": 0.32224189527478597,
+        "negative_alpha_gain": 0.23592342427089624,
+        "gain_updates": [
+          12,
+          18
+        ],
+        "integral": 0.0
+      },
+      "final_true_alpha_deg": 7.5802952377489605
+    }
+  ]
+}

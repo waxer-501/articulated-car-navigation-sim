@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "reason": "navigator_complete",
+  "navigator_mode": "complete",
+  "failure_causes": [],
+  "navigator_status": "按传感器估计已到达；实际精度见独立评分",
+  "position_error_m": 0.025385811379773568,
+  "front_heading_error_deg": 1.7810381843884582,
+  "stable_duration_s": 3.0999999999993832,
+  "boundary_ok": true,
+  "max_absolute_extent_m": 0.7214998963440693,
+  "articulation_ok": true,
+  "max_articulation_deg": 36.90273251897114,
+  "path_rms_m": 0.01709952277887035,
+  "position_estimation_rms_m": 0.005067777986925953,
+  "sim_time_s": 15.799999999998999,
+  "seed": 0,
+  "profile": "nominal",
+  "curve": false,
+  "scope": "simulation only; synthetic detector; unknown toy actuator parameters",
+  "wall_time_s": 49.72649393000029
+}

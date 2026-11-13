@@ -35,12 +35,48 @@
     "runs/gui_soak/result.json"
   ],
   "real_hardware_used": false,
-  "scope": "Original simulation validation; hardware delivered separately under hardware/",
+  "scope": "Historical simulation validation at top level (2026-11-02); current_simulation is the maintained simulation; hardware delivered separately under hardware/",
   "hardware": {
     "source_manifest": "hardware/source_snapshot.json",
     "software_validation": "hardware/validation/sync_20261112.json",
     "last_physical_validation": "2026-11-05",
     "wireless_complete_packets": "100/100; front 50, rear 50; low rate bench test only",
     "full_real_vehicle_navigation_verified": false
+  },
+  "current_simulation": {
+    "date": "2026-11-13",
+    "report": "转向响应与反馈_20261113.md",
+    "evidence_directory": "validation/2026-11-13",
+    "files": {
+      "artic_nav/__init__.py": "e7ce6bb83ec70e8f85d99e06535dff7dabdf33d0bf6b0a52806d87e1e992be53",
+      "artic_nav/benchmark.py": "9cc54f438ee3f6bb9cd807691dad0021f82a863bc404378d7c119a13476f085e",
+      "artic_nav/cli.py": "136c6544c2720a3bd6da24b4f4cf93c0ae4616cf115405c5f6d5219918d18258",
+      "artic_nav/config.py": "619b4042cbb94a8369bd3c8c2cd16b921ae7c0af86808900b811ed168327725b",
+      "artic_nav/controller.py": "fdb5b8db92e68701090abd4787532330fa045bad054b7e52b770724574f71dc5",
+      "artic_nav/estimator.py": "7cc5b121c3b898c7b029b98152c25af83d42a22b99a1762d7f1e78446524c148",
+      "artic_nav/evaluation.py": "3f555c50e09d6fd76e81964040eb48e6f7874cd1164a0a71f356327315efdf31",
+      "artic_nav/geometry.py": "0588ae54b8c365d6db501cbaafec23ff8a9ab109f4eead778cff9f8904fd12a4",
+      "artic_nav/gui.py": "f6e70f658dd5fea04f90bb7b800617517693585bbca533510bd5f183741c9322",
+      "artic_nav/navigation.py": "94c57d279203be0121073dfc47de9c99e29184af03fe38108c5f0de613540556",
+      "artic_nav/physics.py": "9d24d1f573b91167b6a4b0988870000e8460ad8365c839bf972204fb1cae7cdf",
+      "artic_nav/planner.py": "9901eb5e1bcf5b5a4a4e0e8bd605c2313cba72bfe6eee85c6ef89cf61553307a",
+      "artic_nav/sensors.py": "cb0e1b6f6e924c989e8f862ccb4bdc5277a7e7d4fe76aab8046b5194e6ad0b88",
+      "artic_nav/session.py": "0611228f88fad1123675216509d2552309708135993665e6faff40a3f0bed840",
+      "artic_nav/steering.py": "36afc07bd9ef291498e314cae53c1c82cb5930dbd24b49e231d138c1b1286e7e",
+      "artic_nav/worker.py": "7bc8af6f04952ad3e9dfed7eeef440dca2f5bea36707db8aa8c4c29b7717bf6b",
+      "tests/test_geometry_physics.py": "57202d20e2d018f47622bbc3fba591d2ef86ab3716eae4efa6415696ae493091",
+      "tests/test_gui.py": "68fe21fedd2bee9e0630e93ee6bcafe884e1fdceca7b50bd05e3ed5e799d25bd",
+      "tests/test_planning_estimation.py": "ab3337b1ab8c10ad38400247372bc06aabf62bc94f2a6954990863b76fcfb6d9",
+      "tests/test_sensor_boundary.py": "9e8122718e3720a3789f81baf9ca78ad3c1667e57c623cab76c3cf631e16478e",
+      "tests/test_steering.py": "972c757de577b08a0e5b65b612bf34336ed4f5e4bad542fcdb9fd525a49b31cb",
+      "configs/default.yaml": "36b5e4ca701aaaeb1f823bf25bc8c0c551b821dae1ae6fa1c8809cdafb02b173",
+      "requirements.lock": "5ccbc187c346a9af3374998b888daaf61e4e3054667f4593b1f0d74a6b465ca3"
+    },
+    "automated_tests_passed": 19,
+    "default_goal_success": "49/50 (98%)",
+    "steering_variations_curve_blackout": "20/20",
+    "all_batch_runs_within_boundary_and_joint_limits": true,
+    "known_failure": "near_boundary_seed2; safe refusal to replan near boundary; not successful arrival",
+    "real_vehicle_navigation_verified": false
   }
 }

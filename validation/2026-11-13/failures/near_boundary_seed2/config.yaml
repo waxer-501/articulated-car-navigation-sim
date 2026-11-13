@@ -1,0 +1,113 @@
+camera:
+  fovy: 65.0
+  height: 1024
+  hz: 30.0
+  width: 1024
+  z: 2.0
+detector:
+  ideal:
+    bias_std: 0.0
+    center_std: 0.0
+    delay: 0.0
+    false_positive: 0.0
+    miss: 0.0
+    size_std: 0.0
+  nominal:
+    bias_std: 1.5
+    center_std: 3.0
+    delay: 0.1
+    false_positive: 0.003
+    miss: 0.05
+    size_std: 0.05
+  stress:
+    bias_std: 4.0
+    center_std: 8.0
+    delay: 0.25
+    false_positive: 0.02
+    miss: 0.2
+    size_std: 0.12
+evaluation:
+  heading_tolerance_deg: 5.0
+  path_rms_tolerance: 0.05
+  position_tolerance: 0.05
+  settle_seconds: 1.0
+  stopped_speed: 0.01
+  stopped_yaw_rate_deg: 1.0
+geometry:
+  body_half_height: 0.02
+  body_half_width: 0.04
+  body_z: 0.08
+  front_body_center: 0.075
+  front_body_half_length: 0.05
+  front_length: 0.11
+  max_articulation_deg: 40.0
+  rear_body_center: -0.08
+  rear_body_half_length: 0.055
+  rear_length: 0.12
+  track: 0.14
+  wheel_radius: 0.0515
+  wheel_width: 0.04
+imu:
+  accel_bias_std: 0.02
+  accel_noise: 0.05
+  gyro_bias_std: 0.003
+  gyro_bias_walk: 5.0e-05
+  gyro_noise: 0.004
+  hz: 200.0
+navigation:
+  control_hz: 10.0
+  episode_seconds: 180.0
+  footprint_margin: 0.015
+  heading_tolerance_deg: 3.5
+  horizon_dt: 0.15
+  horizon_steps: 12
+  max_heading_sigma_deg: 15.0
+  max_position_sigma: 0.05
+  max_speed: 0.15
+  max_steer_rate_deg: 30.0
+  nominal_drive_speed: 0.18
+  planner_alpha_deg: 10.0
+  planner_heading_deg: 10.0
+  planner_max_nodes: 60000
+  planner_resolution: 0.035
+  position_tolerance: 0.04
+  rpc_timeout_seconds: 600.0
+  settle_seconds: 1.0
+  steering:
+    feedback_gain: 0.45
+    feedback_max_age: 0.15
+    integral_gain: 1.2
+    learning_rate: 0.15
+    learning_settle_seconds: 0.4
+    limit_margin_deg: 1.5
+    prior_rate_deg: 30.0
+  vision_slow_age: 0.5
+  vision_stop_age: 1.0
+physics:
+  actuator_delay: 0.06
+  actuator_tau: 0.07
+  drive_deadzone: 0.035
+  drive_torque: 0.035
+  dt: 0.0025
+  friction: 0.85
+  initial_pose:
+  - -0.4
+  - -0.5
+  - 0.0
+  - 0.0
+  left_right_gain: 0.97
+  mass: 1.0
+  steer_angle_loss: 0.18
+  steer_deadzone: 0.06
+  steer_drift_fraction: 0.08
+  steer_drift_period: 18.0
+  steer_exponent: 1.25
+  steer_friction: 0.004
+  steer_left_rate_deg: 24.0
+  steer_motor_damping: 1.8
+  steer_right_rate_deg: 39.0
+  steer_speed_loss: 0.12
+  steer_torque: 0.35
+  wheel_damping: 0.01
+profile: nominal
+seed: 2

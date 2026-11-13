@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.optimize import minimize
 from .geometry import advance, footprint, wrap
+from .steering import SteeringFeedback
 
 
 class MPC:
@@ -10,13 +11,14 @@ class MPC:
         self.index = 0
         self.warm = np.zeros((4, 2))
         self.last_result = {}
+        self.steering = SteeringFeedback(cfg)
 
     def set_path(self, path):
         self.path = np.asarray(path)
         self.index = 0
         self.warm[:] = 0
 
-    def control(self, state, goal, speed, sigma):
+    def control(self, state, goal, speed, sigma, now):
         path = self.path
         direction = np.sign(path[min(self.index+1, len(path)-1), 4])
         phase_end = len(path)-1
@@ -92,4 +94,5 @@ class MPC:
         if abs(drive) > .02:
             drive += np.sign(drive)*.025
         drive = np.clip(drive, -maxv/self.n["nominal_drive_speed"], maxv/self.n["nominal_drive_speed"])
-        return np.clip([drive, desired_r/maxr], -1, 1)
+        steer = self.steering.control(desired_r, now, state[3])
+        return np.clip([drive, steer], -1, 1)

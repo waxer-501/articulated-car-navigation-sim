@@ -54,7 +54,7 @@ def main():
     parser.add_argument("--video", action="store_true")
     parser.add_argument("--blackout", nargs=2, type=float)
     parser.add_argument("--jobs", type=int, default=2)
-    parser.add_argument("--suite", choices=["acceptance", "stress", "sensitivity"], default="acceptance")
+    parser.add_argument("--suite", choices=["acceptance", "stress", "sensitivity", "steering"], default="acceptance")
     parser.add_argument("--requests", help="sensor_requests.jsonl.gz for deterministic replay")
     args = parser.parse_args()
     cfg = load_config(args.config, args.seed, args.profile)

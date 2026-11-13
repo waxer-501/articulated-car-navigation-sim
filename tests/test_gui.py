@@ -40,6 +40,19 @@ assert window.engine.commands.get_nowait() == ("pause", False)
 assert window.engine.commands.get_nowait()[0] == "goal"
 window.send("stop")
 assert window.engine.commands.get_nowait()[0] == "stop"
+import numpy as np
+data = {"camera": None, "observer": np.zeros((64, 64, 3), dtype=np.uint8),
+        "truth": {"state": [0, 0, 0, 0]},
+        "output": {"time": 2., "estimate": None, "status": "testing", "steering_feedback": {
+            "fresh": True, "target_rate": np.deg2rad(10.), "rate_estimate": np.deg2rad(7.),
+            "remote_value": .2, "gain_updates": [3, 4]}}}
+window.update_data(data)
+assert "目标 10.0" in window.steering_metrics.text()
+assert "估计 7.0" in window.steering_metrics.text()
+assert "0.200" in window.steering_metrics.text()
+data["output"]["steering_feedback"]["fresh"] = False
+window.update_data(data)
+assert "等待" in window.steering_metrics.text()
 window.close()
 window.deleteLater()
 app.processEvents()

@@ -59,8 +59,9 @@ def make_xml(cfg):
         </body>
       </worldbody>
       <contact><exclude body1="front" body2="rear"/></contact>
-      <actuator>{motors}<velocity name="steering" joint="articulation" kv="{p['steer_gain']}"
-        ctrllimited="true" ctrlrange="-0.524 0.524" forcelimited="true" forcerange="{-p['steer_torque']} {p['steer_torque']}"/></actuator>
+      <actuator>{motors}<general name="steering" joint="articulation"
+        gainprm="{p['steer_motor_damping']}" biastype="affine" biasprm="0 0 {-p['steer_motor_damping']}"
+        ctrllimited="true" ctrlrange="-2 2" forcelimited="true" forcerange="{-p['steer_torque']} {p['steer_torque']}"/></actuator>
       <sensor><accelerometer name="front_accel" site="front_imu"/><gyro name="front_gyro" site="front_imu"/>
         <accelerometer name="rear_accel" site="rear_imu"/><gyro name="rear_gyro" site="rear_imu"/></sensor>
     </mujoco>'''
@@ -111,12 +112,20 @@ class World:
         self.filtered += (self.applied-self.filtered)*min(1, p["dt"]/p["actuator_tau"])
         drive, steer = self.filtered
         drive = 0 if abs(drive) < p["drive_deadzone"] else drive
-        steer = 0 if abs(steer) < p["steer_deadzone"] else steer
         self.data.ctrl[:4] = drive*np.array([1, p["left_right_gain"], 1, p["left_right_gain"]])
-        target = -steer*np.deg2rad(self.cfg["navigation"]["max_steer_rate_deg"])
         q = float(self.data.qpos[self.steer_joint.qposadr[0]])
         limit = np.deg2rad(self.cfg["geometry"]["max_articulation_deg"]-.1)
+        # Private motor/load surrogate: asymmetric nonlinear no-load speed plus
+        # torque/speed drag. It is NOT the navigator's requested angular rate.
+        magnitude = max(0., (abs(steer)-p["steer_deadzone"])/(1-p["steer_deadzone"]))
+        rate = p["steer_left_rate_deg"] if steer >= 0 else p["steer_right_rate_deg"]
+        load = 1-p["steer_angle_loss"]*(q/limit)**2
+        load *= 1-p["steer_speed_loss"]*min(1., np.linalg.norm(self.data.qvel[:2])/.15)
+        drift = 1+p["steer_drift_fraction"]*np.sin(2*np.pi*self.time/p["steer_drift_period"])
+        target = -np.sign(steer)*np.deg2rad(rate)*magnitude**p["steer_exponent"]*load*drift
         target = np.clip(target, (-limit-q)/p["dt"], (limit-q)/p["dt"])
+        # MuJoCo integrates the torque/speed slope implicitly; doing the drag
+        # explicitly in Python is unstable at this inertia and timestep.
         self.data.ctrl[4] = target
         mujoco.mj_step(self.model, self.data)
 

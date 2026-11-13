@@ -7,12 +7,20 @@ physics:
   wheel_damping: 0.01
   drive_torque: 0.035
   steer_torque: 0.35
-  steer_gain: 1.8
+  # Hidden plant parameters; never passed to the navigation process.
+  steer_motor_damping: 1.8
+  steer_left_rate_deg: 24.0
+  steer_right_rate_deg: 39.0
+  steer_exponent: 1.25
+  steer_angle_loss: 0.18
+  steer_speed_loss: 0.12
+  steer_drift_fraction: 0.08
+  steer_drift_period: 18.0
   steer_friction: 0.004
   actuator_delay: 0.06
   actuator_tau: 0.07
   drive_deadzone: 0.035
-  steer_deadzone: 0.025
+  steer_deadzone: 0.06
   left_right_gain: 0.97
   initial_pose: [-0.55, -0.45, 0.0, 0.0]
 geometry:
@@ -50,6 +58,15 @@ navigation:
   control_hz: 10.0
   max_speed: 0.15
   max_steer_rate_deg: 30.0
+  # Prediction limit and initial guess only; neither describes the hidden plant.
+  steering:
+    prior_rate_deg: 30.0
+    feedback_gain: 0.45
+    integral_gain: 1.2
+    feedback_max_age: 0.15
+    learning_settle_seconds: 0.4
+    learning_rate: 0.15
+    limit_margin_deg: 1.5
   nominal_drive_speed: 0.18
   position_tolerance: 0.04
   heading_tolerance_deg: 3.5

@@ -1,0 +1,8 @@
+{
+  "scope": "simulation only; observations older than 1 s stop both commands",
+  "checked_ticks": 20,
+  "first_stop_time": 4.099999999999941,
+  "last_stop_time": 6.000000000000238,
+  "all_commands_zero": true,
+  "task_recovered_and_passed": true
+}

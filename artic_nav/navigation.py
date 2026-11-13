@@ -23,9 +23,19 @@ class Navigation:
         self.best_progress = np.inf
         self.progress_time = 0.
         self.replans = 0
+        self.sensor_time = 0.
 
     def update(self, request):
         self.estimator.consume(request.get("sensors", []))
+        e = self.estimator
+        # The EKF integration time need not advance when IMUs disappear. Use
+        # the newest allowed sensor timestamp to age feedback, including empty
+        # camera frames; otherwise a frozen EKF clock would hide an IMU outage.
+        self.sensor_time = max(self.sensor_time, e.time,
+                               max((p["time"] for p in request.get("sensors", [])), default=0.))
+        now = self.sensor_time
+        biases = e.x[5:7] if e.x is not None else e.gyro_bias
+        self.controller.steering.observe(request.get("sensors", []), biases)
         action = request.get("action")
         if action == "stop":
             self.mode = "stopped"
@@ -46,16 +56,16 @@ class Navigation:
             self.path = None
             self.settle_start = None
             self.replans = 0
-        e = self.estimator
         state = e.state()
         if state is not None:
             self.filtered_speed += .15*(e.x[4]-self.filtered_speed)
         command = np.zeros(2)
         pos_sigma, yaw_sigma = e.sigma()
-        age = e.time-e.last_visual
-        ready = state is not None and e.calibrated and age < self.cfg["navigation"]["vision_stop_age"]
+        age = now-e.last_visual
+        ready = (state is not None and e.calibrated and age < self.cfg["navigation"]["vision_stop_age"]
+                 and self.controller.steering.fresh(now))
         if not ready:
-            self.status = e.initialization_reason if state is None else "等待有效视觉观测与 IMU 标定"
+            self.status = e.initialization_reason if state is None else "等待有效视觉、双 IMU 观测与静止标定"
         elif pos_sigma > self.cfg["navigation"]["max_position_sigma"] or yaw_sigma > np.deg2rad(self.cfg["navigation"]["max_heading_sigma_deg"]):
             self.status = "定位不确定度过大，停车等待"
         else:
@@ -98,14 +108,20 @@ class Navigation:
                         self.settle_start = None
                 else:
                     self.settle_start = None
-                    command = self.controller.control(state, self.goal, e.x[4], pos_sigma)
+                    command = self.controller.control(state, self.goal, e.x[4], pos_sigma, now)
                     if age > n["vision_slow_age"]:
                         command *= .35
                 if self.mode == "running":
                     self.status = f"导航中 · 距离 {error:.3f} m · 前车朝向误差 {np.rad2deg(yaw_error):.1f}°"
             elif self.mode == "idle":
                 self.status = "定位就绪，请点选目标或启动曲线演示"
-        result = {"time": e.time, "command": command.tolist(), "mode": self.mode, "status": self.status,
+        # Every issued neutral/scaled command must reach the learning history too;
+        # otherwise a pause or visual interruption could be learned as motor gain.
+        if not np.any(command):
+            self.controller.steering.control(0., now, 0. if state is None else state[3])
+        elif self.controller.steering.commands:
+            self.controller.steering.commands[-1] = (now, float(command[1]))
+        result = {"time": now, "command": command.tolist(), "mode": self.mode, "status": self.status,
                   "estimate": None if state is None else state.tolist(),
                   "speed_estimate": None if state is None else float(e.x[4]),
                   "position_sigma": pos_sigma if np.isfinite(pos_sigma) else None,
@@ -114,6 +130,7 @@ class Navigation:
                   "vision_age": age if np.isfinite(age) else None,
                   "rejected_observations": e.rejected}
         result["replans"] = self.replans
+        result["steering_feedback"] = self.controller.steering.diagnostics()
         if self.path is not None:
             result["path"] = self.path.tolist()
         return result

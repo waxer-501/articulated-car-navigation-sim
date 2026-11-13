@@ -281,6 +281,9 @@ class Window(QMainWindow):
         self.metrics = QLabel("仿真时间 —    估计位置 —    前车朝向 —    铰接角 —")
         self.metrics.setObjectName("metrics")
         layout.addWidget(self.metrics)
+        self.steering_metrics = QLabel("转向反馈：等待双 IMU 观测")
+        self.steering_metrics.setWordWrap(True)
+        layout.addWidget(self.steering_metrics)
         self.status = QLabel("正在启动…")
         self.status.setWordWrap(True)
         layout.addWidget(self.status)
@@ -345,6 +348,16 @@ class Window(QMainWindow):
             self.metrics.setText(f"仿真 {output['time']:.1f} s    估计位置 ({estimate[0]:.3f}, {estimate[1]:.3f}) m    "
                                  f"前车朝向 {np.rad2deg(estimate[2]):.1f}°    铰接角 {np.rad2deg(estimate[3]):.1f}°    位置 σ {sigma*1000:.0f} mm")
         self.evaluation.update()
+        steering = output.get("steering_feedback", {})
+        if steering.get("fresh") and steering.get("rate_estimate") is not None:
+            updates = steering["gain_updates"]
+            self.steering_metrics.setText(
+                f"转向遥控量 {steering['remote_value']:.3f}（0 左 / 0.5 保持 / 1 右）    "
+                f"铰接速率：目标 {np.rad2deg(steering['target_rate']):.1f}°/s / "
+                f"双 IMU 估计 {np.rad2deg(steering['rate_estimate']):.1f}°/s    "
+                f"左右响应学习次数 {updates[0]} / {updates[1]}")
+        else:
+            self.steering_metrics.setText("转向反馈：等待新鲜的双 IMU 观测")
         self.status.setText(output["status"])
 
     def failure(self, message):
