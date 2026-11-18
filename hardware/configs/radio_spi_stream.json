@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "firmware_profile": "radio-stream",
+  "topology": "2 x IMU406 -> STM32F103C6 -> bare 24L01P TX -> bare 24L01P RX -> Raspberry Pi SPI",
+  "receiver_is_old_usb_carrier": false,
+  "receiver_interface_confirmed_by_user": "2026-11-18: bare 8-pin radio directly connected to Raspberry Pi SPI",
+  "physically_verified": false,
+  "air": {
+    "channel": 60,
+    "data_rate_bps": 250000,
+    "power_dbm": 0,
+    "address_bytes_in_spi_order": [52, 67, 16, 16, 1],
+    "address_spi_hex": "3443101001",
+    "address_width_bytes": 5,
+    "hardware_crc_bytes": 1,
+    "payload_bytes": 32,
+    "dynamic_payload": false,
+    "auto_ack_pipe0": true,
+    "ack_payload": false,
+    "tx_retransmit_delay_us": 750,
+    "tx_max_retransmissions": 3
+  },
+  "receiver_registers_hex": {
+    "CONFIG": "0b",
+    "EN_AA": "01",
+    "EN_RXADDR": "01",
+    "SETUP_AW": "03",
+    "RF_CH": "3c",
+    "RF_SETUP": "26",
+    "DYNPD": "00",
+    "FEATURE": "00",
+    "RX_PW_P0": "20",
+    "RX_ADDR_P0_spi": "3443101001"
+  },
+  "sampling": {
+    "expected_current_output_hz_per_imu": 25,
+    "imu_frequency_configuration_changed": false,
+    "tx_policy": "each valid sample enqueued once; no fixed rate timer, no artificial fragmentation gap",
+    "continuous": true,
+    "queue_frames_per_sensor": 4,
+    "maximum_queue_age_us": 100000,
+    "tx_completion_deadline_us": 100000
+  },
+  "wire": {
+    "format": "telemetry_v1",
+    "frame_bytes": 32,
+    "byte_order": "little-endian",
+    "crc": "CRC16/CCITT-FALSE on bytes 0..29; bytes 30..31 little-endian",
+    "timestamp_meaning": "MCU UART frame-completion time; not IMU sample clock or Raspberry Pi time"
+  },
+  "receiver_requirements": [
+    "Drain all available RX FIFO entries promptly; do not sleep 100 or 300 ms between reads",
+    "Decode every 32-byte payload with Packet.decode / ReceiverState.accept",
+    "Keep per-IMU sequence and MCU timestamp; no invented duplicated/interpolated samples",
+    "Keep host receive timestamps separate; delivery rate is not latency validation",
+    "No Raspberry Pi SPI/GPIO configuration or real deployment has been performed by this change"
+  ]
+}

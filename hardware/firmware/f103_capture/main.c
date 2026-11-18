@@ -1,5 +1,6 @@
-/* Dual-IMU receive-only bring-up. No IMU commands, RF transmission or USB stack.
- * Only USART1/2 RX, TIM2 and SysTick run. PA4=CSN high, PB0=CE low.
+/* Dual-IMU receive core. The capture profile disables RF; RADIO_TELEMETRY adds
+ * data-only radio output. No IMU commands, vehicle commands or USB stack.
+ * Capture-only: USART1/2 RX, TIM2, SysTick; PA4=CSN high, PB0=CE low.
  * MCU remains accessible over SWD; all measurement payloads originate at UART.
  */
 #include "stm32f103x6.h"
@@ -269,6 +270,10 @@ int main(void)
             published_ms = working.uptime_ms;
         }
         /* UART interrupts wake WFI, SysTick bounds a missed-wakeup to 1 ms. */
-        if (channels[0].head == channels[0].tail && channels[1].head == channels[1].tail) __WFI();
+        if (channels[0].head == channels[0].tail && channels[1].head == channels[1].tail
+#ifdef RADIO_STREAM
+            && !radio_app_busy() /* Service CE and TX completion without a 1 ms sleep. */
+#endif
+            ) __WFI();
     }
 }

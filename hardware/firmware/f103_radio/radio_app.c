@@ -4,18 +4,25 @@
 #include "boot_journal.h"
 #include "telemetry_v1.h"
 #include <string.h>
+#ifdef RADIO_STREAM
+#include "radio_stream.h"
+#endif
 
 #define JOURNAL_BASE 0x08007800u
+static uint32_t (*clock_us)(void);
+#ifndef RADIO_STREAM
 #define TRANSMIT_START_MS 5000u
 #define TRANSMIT_END_MS 65000u
 #define FRAGMENT_GAP_US 300000u
 
-static uint32_t (*clock_us)(void);
 static uint32_t boot_id, state, fragments_ok, fragments_failed, packets_done, packets_started;
 static uint32_t encode_errors, next_us, last_status, init_error;
 static uint8_t latest[2][32], packet[32], have[2], half, active, next_sensor;
 static uint32_t timestamps[2], sequences[2], last_selected[2];
 static nrf24_tx_t radio;
+#else
+static radio_stream_t stream;
+#endif
 
 static uint32_t flash_read(void *unused, unsigned page, unsigned word)
 {
@@ -90,24 +97,38 @@ static int spi_byte(void *unused, uint8_t byte)
 {
     (void)unused;
     uint32_t started = clock_us();
-    while (!(SPI1->SR & SPI_SR_TXE)) if ((uint32_t)(clock_us()-started) > 100000u) return -1;
+#ifdef RADIO_STREAM
+    /* 500 kHz transfers nominally take 16 us/byte. 1 ms is >60 times that;
+     * do not stall UART servicing for 100 ms per byte on an SPI failure.
+     */
+    const uint32_t timeout = 1000u;
+#else
+    const uint32_t timeout = 100000u;
+#endif
+    while (!(SPI1->SR & SPI_SR_TXE)) if ((uint32_t)(clock_us()-started) > timeout) return -1;
     *(volatile uint8_t *)&SPI1->DR = byte;
-    while (!(SPI1->SR & SPI_SR_RXNE)) if ((uint32_t)(clock_us()-started) > 100000u) return -1;
+    while (!(SPI1->SR & SPI_SR_RXNE)) if ((uint32_t)(clock_us()-started) > timeout) return -1;
     return *(volatile uint8_t *)&SPI1->DR;
 }
 
 void radio_app_init(uint32_t (*clock)(void), uint32_t id)
 {
     clock_us = clock;
+#ifndef RADIO_STREAM
     boot_id = id;
     state = 2;
     if (!id) { init_error = 100; return; }
+#endif
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
     /* PA5/PA7 alternate push-pull, PA6 input. SPI mode 0, nominal 500 kHz. */
     GPIOA->CRL = (GPIOA->CRL & ~((15u << 20) | (15u << 24) | (15u << 28))) |
                   (10u << 20) | (4u << 24) | (10u << 28);
     SPI1->CR1 = SPI_CR1_MSTR | SPI_CR1_SSM | SPI_CR1_SSI | (6u << 3) | SPI_CR1_SPE;
     nrf24_io_t io = {0, select_chip, enable_radio, spi_byte};
+#ifdef RADIO_STREAM
+    if (radio_stream_init(&stream, &io, id, clock_us()) == 0)
+        stream.ready_us = clock_us()+RADIO_STREAM_SETTLE_US;
+#else
     int result = nrf24_tx_init(&radio, &io);
     if (result) {
         init_error = (uint32_t)-result;
@@ -115,8 +136,24 @@ void radio_app_init(uint32_t (*clock)(void), uint32_t id)
         return;
     }
     state = 1; /* Configured and read back; wait five seconds before first TX. */
+#endif
 }
 
+#ifdef RADIO_STREAM
+void radio_app_frame(unsigned id, const uint8_t frame[32], uint32_t us, uint32_t sequence)
+{
+    (void)radio_stream_frame(&stream, id, frame, us, sequence);
+}
+
+void radio_app_poll(uint32_t now, uint32_t ms, volatile uint32_t d[16])
+{
+    (void)ms;
+    radio_stream_poll(&stream, now);
+    radio_stream_diagnostic(&stream, d);
+}
+
+int radio_app_busy(void) { return radio_stream_busy(&stream); }
+#else
 void radio_app_frame(unsigned id, const uint8_t frame[32], uint32_t us, uint32_t sequence)
 {
     if (id > 1) return;
@@ -176,3 +213,4 @@ void radio_app_poll(uint32_t now, uint32_t ms, volatile uint32_t d[16])
     }
     update_diagnostic(d);
 }
+#endif

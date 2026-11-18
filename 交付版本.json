@@ -41,7 +41,22 @@
     "software_validation": "hardware/validation/sync_20261112.json",
     "last_physical_validation": "2026-11-05",
     "wireless_complete_packets": "100/100; front 50, rear 50; low rate bench test only",
-    "full_real_vehicle_navigation_verified": false
+    "full_real_vehicle_navigation_verified": false,
+    "spi_stream_candidate": {
+      "date": "2026-11-18",
+      "profile": "radio-stream",
+      "receiver": "bare 8-pin radio directly to Raspberry Pi SPI; user confirmed",
+      "status": "built and offline tested; NOT flashed; real SPI delivery not validated",
+      "evidence": "hardware/validation/2026-11-18/radio_stream_candidate.json",
+      "guide": "hardware/docs/F103_SPI连续回传_20261118.md",
+      "receiver_config": "hardware/configs/radio_spi_stream.json",
+      "firmware_bytes": 7084,
+      "firmware_sha256": "21ea066bcec17e1c44858c8cb1238b782e87da46952b3a53172f8617e9f3ca08",
+      "software_tests_passed": 83,
+      "flashed": false,
+      "imu_configuration_changed": false,
+      "frame_policy": "each valid sample, one 32-byte RF payload; follows source output; no 300 ms gap; continuous"
+    }
   },
   "current_simulation": {
     "date": "2026-11-13",

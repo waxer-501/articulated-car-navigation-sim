@@ -23,6 +23,13 @@ def decode_snapshot(raw):
                                     'packets_completed', 'encode_errors', 'spi_errors', 'end_ms',
                                     'packets_started', 'last_status', 'readback_config_channel_rf_feature',
                                     'readback_en_aa_aw_dynpd', 'fragment_gap_us', 'init_error', 'start_ms'), extension))
+    elif extension[0] == 3:
+        result['radio'] = dict(zip(('profile', 'boot_id', 'state', 'packets_completed', 'packets_failed',
+                                    'packets_started', 'encode_errors', 'spi_errors', 'rf_queue_overflow_drops',
+                                    'rf_stale_drops', 'last_status', 'rf_queue_depth', 'rf_queue_high_water',
+                                    'maximum_queue_age_us', 'init_error', 'tx_completion_deadline_us'), extension))
+        result['radio'].update(continuous=True, payload_bytes=32, fragment_gap_us=0,
+                               receiver='direct SPI radio; old USB RX carrier is not applicable')
     for index, name in enumerate(('front', 'rear')):
         (rx_bytes, frames, rejected, errors, drops, us, tail_pos, max_depth,
          frame, tail) = SENSOR.unpack_from(raw, HEADER.size+index*SENSOR.size)

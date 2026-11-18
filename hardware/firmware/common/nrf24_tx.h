@@ -20,8 +20,13 @@ typedef struct {
  * This is a candidate profile until real USB RX receipt is demonstrated.
  */
 int nrf24_tx_init(nrf24_tx_t *radio, const nrf24_io_t *io);
+/* Direct-SPI receiver profile: fixed 32-byte payload, no dynamic/ACK payload,
+ * 750 us retry delay, at most three hardware retransmissions. Same RF/address.
+ */
+int nrf24_tx_init_stream(nrf24_tx_t *radio, const nrf24_io_t *io);
 int nrf24_tx_start(nrf24_tx_t *radio, const uint8_t *payload, unsigned length, uint32_t now_us);
 /* 0=busy, 1=TX_DS, -1=MAX_RT/timeout/IO error; call repeatedly without blocking. */
 int nrf24_tx_poll(nrf24_tx_t *radio, uint32_t now_us);
+int nrf24_tx_poll_deadline(nrf24_tx_t *radio, uint32_t now_us, uint32_t deadline_us);
 void nrf24_tx_power_down(nrf24_tx_t *radio);
 #endif

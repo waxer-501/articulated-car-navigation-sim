@@ -112,3 +112,34 @@ void nrf24_tx_power_down(nrf24_tx_t *r)
     r->phase = 0;
     write_reg(r, 0x00, 0x08);
 }
+
+int nrf24_tx_init_stream(nrf24_tx_t *r, const nrf24_io_t *io)
+{
+    int result = nrf24_tx_init(r, io);
+    if (result) return result;
+    /* The direct-SPI receiver must use these same fixed-payload settings. */
+    static const uint8_t regs[] = {0x04, 0x1c, 0x1d, 0x11};
+    static const uint8_t values[] = {0x23, 0, 0, 32};
+    for (unsigned i = 0; i < sizeof(regs); ++i) {
+        if (write_reg(r, regs[i], values[i]) < 0) return -1;
+        if (read_reg(r, regs[i]) != values[i]) return -3;
+    }
+    r->config[4] = 0x23;
+    r->config[7] = 0;
+    return 0;
+}
+
+int nrf24_tx_poll_deadline(nrf24_tx_t *r, uint32_t now, uint32_t deadline_us)
+{
+    /* A shorter stream deadline without changing the verified legacy poll
+     * implementation. Its existing one-second upper bound still applies.
+     */
+    if (r->phase >= 2 && (uint32_t)(now-r->started_us) >= deadline_us) {
+        r->io.ce(r->io.ctx, 0);
+        r->phase = 0;
+        write_reg(r, 0x07, 0x70);
+        command(r, 0xe1, NULL, NULL, 0);
+        return -1;
+    }
+    return nrf24_tx_poll(r, now);
+}

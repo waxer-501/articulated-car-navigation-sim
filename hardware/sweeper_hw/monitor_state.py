@@ -72,7 +72,8 @@ class MonitorState:
             radio = data.get('radio',{})
             observed_restart=(old is not None and old.get('radio',{}).get('boot_id')!=radio.get('boot_id') and
                               old_seen is not None and self.usb.get('connected_since',now)<=old_seen)
-            if self.usb['connected'] and radio.get('boot_id') and (data['mcu_uptime_ms'] < 4000 or observed_restart):
+            if (not radio.get('continuous') and self.usb['connected'] and radio.get('boot_id')
+                    and (data['mcu_uptime_ms'] < 4000 or observed_restart)):
                 self.covered_boots.add(radio['boot_id'])
             for name, item in data['sensors'].items():
                 sample = item['sample']
@@ -108,6 +109,10 @@ class MonitorState:
                     if since_end > 2500:
                         comparison['matched'] = radio['packets_completed'] == self.per_boot.get(boot,0)
                         comparison['reason'] = ('完整包计数一致。' if comparison['matched'] else '完整包计数不同，请查看原始记录。')
+            if radio.get('continuous'):
+                comparison.update(complete_window_observed=False, continuous=True,
+                                  reason='连续整包 SPI 版本；树莓派接收端需另行记录，不能与旧 USB 接收窗口核对。')
+                comparison.pop('matched', None)
             return copy.deepcopy({'usb':self.usb,'swd':self.swd,'mcu':self.mcu,'mcu_seen':self.mcu_seen,
                 'source_hz':self.source_hz,'radio_hz':rate,'source_latest':self.source_latest,
                 'radio_latest':self.radio_latest,'history':histories,'comparison':comparison,

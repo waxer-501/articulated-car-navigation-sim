@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Review/flash the capture-only image. Dry-run by default; never mass erase."""
+"""Review/flash a selected capture or radio image. Dry-run default; no mass erase."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -15,14 +15,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--apply', action='store_true', help='Explicitly overwrite first image pages and reset MCU')
     parser.add_argument('--serial', default='33FF72064243323456261357')
-    parser.add_argument('--profile', choices=('capture', 'radio'), default='capture')
+    parser.add_argument('--profile', choices=('capture', 'radio', 'radio-stream'), default='capture')
     args = parser.parse_args()
-    name = 'f103_'+args.profile
+    name = 'f103_'+args.profile.replace('-', '_')
     build = ROOT/'build'/name
     report = json.loads((build/'build.json').read_text())
+    if report.get('profile_id') != args.profile:
+        raise RuntimeError('Build profile mismatch; rebuild the selected profile')
     binary = build/(name+'.bin')
     expected = binary.read_bytes()
-    if hashlib.sha256(expected).hexdigest() != report['binary_sha256'] or not 8 <= len(expected) <= 32768:
+    limit = 32768 if args.profile == 'capture' else 30720
+    if hashlib.sha256(expected).hexdigest() != report['binary_sha256'] or not 8 <= len(expected) <= limit:
         raise RuntimeError('Firmware size/hash mismatch; rebuild before flashing')
     for name, digest in report['inputs'].items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != digest:
@@ -32,6 +35,7 @@ def main():
                       'image_sha256': report['binary_sha256'],
                       'pages_to_replace': (len(expected)+1023)//1024,
                       'boot_journal': report.get('boot_journal'),
+                      'radio_stream': report.get('radio_stream'),
                       'profile': report['profile']}, ensure_ascii=False, indent=2), flush=True)
     if not args.apply:
         return 0

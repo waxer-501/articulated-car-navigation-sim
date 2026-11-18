@@ -169,10 +169,16 @@ class MonitorView:
                       f"UART 错误 {m['sensors']['front']['uart_errors']}/{m['sensors']['rear']['uart_errors']} · 队列丢失 {m['sensors']['front']['queue_drops']}/{m['sensors']['rear']['queue_drops']}")
         else:self.card(0,'STM32 诊断未连接','USB 接收可独立运行',s['swd']['error'] or '等待 ST-Link 连接',AMBER)
         if recent and radio:
-            st=radio['state'];message={1:'发送窗口内',2:'SPI 初始化失败',4:'发送窗口已结束'}.get(st,'等待状态')
-            if st==1 and m['mcu_uptime_ms']<radio['start_ms']:message='等待启动发送'
-            self.card(1,message,f"整包 {radio['packets_completed']}  /  片段成功 {radio['fragments_ok']}",
-                      f"启动 #{radio['boot_id']} · 失败片段 {radio['fragments_failed']} · SPI 错误 {radio['spi_errors']}",AMBER if st in (2,4) else TEAL)
+            st=radio['state']
+            if radio.get('continuous'):
+                message='连续整包发送' if st==1 else 'SPI 初始化失败'
+                self.card(1,message,f"完成 {radio['packets_completed']} / 尝试 {radio['packets_started']}",
+                          f"启动 #{radio['boot_id']} · 失败 {radio['packets_failed']} · 队列丢弃 {radio['rf_queue_overflow_drops']} · 过期 {radio['rf_stale_drops']}",AMBER if st!=1 else TEAL)
+            else:
+                message={1:'发送窗口内',2:'SPI 初始化失败',4:'发送窗口已结束'}.get(st,'等待状态')
+                if st==1 and m['mcu_uptime_ms']<radio['start_ms']:message='等待启动发送'
+                self.card(1,message,f"整包 {radio['packets_completed']}  /  片段成功 {radio['fragments_ok']}",
+                          f"启动 #{radio['boot_id']} · 失败片段 {radio['fragments_failed']} · SPI 错误 {radio['spi_errors']}",AMBER if st in (2,4) else TEAL)
         else:self.card(1,'暂无源端发送状态','无线计数需 ST-Link 诊断','不会根据电脑收包反推 STM32 状态',MUTED)
         c=s['rx_status']['counts']
         self.card(2,'USB RX 已连接' if s['usb']['connected'] else 'USB RX 未连接',
@@ -182,7 +188,7 @@ class MonitorView:
         comparison=s['comparison']
         if 'matched' in comparison:
             self.card(3,f"{comparison['received']} / {comparison['sent']} 完整包",comparison['reason'],'已覆盖本次启动的发送全过程',TEAL if comparison['matched'] else AMBER)
-        else:self.card(3,'等待窗口结束' if comparison['complete_window_observed'] else '本会话未覆盖完整窗口',
+        else:self.card(3,('SPI 接收需单独验收' if comparison.get('continuous') else ('等待窗口结束' if comparison['complete_window_observed'] else '本会话未覆盖完整窗口')),
                        f"源端启动累计 {comparison['sent'] if comparison['sent'] is not None else '—'}  /  同启动实收 {comparison['received']}",comparison['reason'],MUTED)
         selected=self.source.get();hist={};latest={};plot_now=now
         if selected=='历史实测回放':
@@ -205,6 +211,8 @@ class MonitorView:
             self.banner_label.configure(fg=AMBER)
             if recent and radio.get('state')==4:
                 self.banner.set('当前验证固件的无线窗口已结束，STM32 仍在采集。下次上电后约 5 秒开始约一分钟发送；本界面不复位、不烧录。')
+            elif recent and radio.get('continuous'):
+                self.banner.set('当前是树莓派 SPI 连续整包版本。ST-Link 只显示源端抽样；电脑 USB 卡片不是树莓派实收，需单独核对 SPI 接收记录。')
             elif src=='mcu':self.banner.set('下方是 ST-Link 抽样查看的源端数据，不是空中收包或完整 25Hz 序列；完整链路请同时查看 USB RX 卡片。')
             else:self.banner.set('下方只显示 USB RX 真正收到并通过 CRC 的测量。序号缺口包含主动降频省略的源帧，不能直接当作射频丢包。')
         for name in ('front','rear'):

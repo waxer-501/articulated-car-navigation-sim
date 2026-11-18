@@ -1,6 +1,6 @@
 """Version-1, 32-byte, data-only IMU telemetry; no control message type.
 
-rx_time_us is the MC02 UART frame-completion counter, NOT the IMU's internal
+rx_time_us is the MCU UART frame-completion counter, NOT the IMU's internal
 sample clock and NOT a Raspberry Pi timestamp. See docs/telemetry_v1.md.
 """
 from dataclasses import dataclass

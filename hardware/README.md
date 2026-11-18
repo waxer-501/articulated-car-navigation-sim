@@ -2,6 +2,14 @@
 
 GitHub 维护入口为 `articulated-car-navigation-sim/hardware/`。本地历史文件夹名“清扫小车实机”沿用；本模块服务于独立铰接小车。首次克隆后在 `hardware/` 运行 `bash 安装实机环境.sh`；需构建固件及 ST-Link 旁路工具时运行 `bash 安装实机环境.sh --with-firmware-tools`。安装只创建局部环境和下载校验后的依赖，不连接、烧录或复位硬件。依赖恢复脚本支持已验证的 Ubuntu 22.04 x86_64；树莓派接收软件及正式部署仍待单独验证。
 
+**2026-11-18 新代码：** 用户确认接收侧采用 8 针无线模块直接接树莓派 SPI。已新增 `radio-stream` 连续整包固件：逐个有效 IMU 样本发送 32 字节包，取消 300 ms 分片等待及一分钟停止，按当前每只约 25 Hz 的有效输出跟随发送。83 项离线测试通过，固件已构建；**尚未烧录或验证树莓派真实接收**。旧 USB 底板配置仍独立保留。见 [新固件说明](docs/F103_SPI连续回传_20261118.md) 和 [接收参数](configs/radio_spi_stream.json)。
+
+```bash
+# 在本 hardware 目录运行；只构建和预览，不打开设备
+/usr/bin/python3 tools/build_f103_capture.py --profile radio-stream
+/usr/bin/python3 tools/flash_f103_capture.py --profile radio-stream
+```
+
 2026-11-18 已只读复核 ST-Link/V2 → F103 的 SWD 热连接。另一台电脑连接同板时，可使用 [连接对照说明](docs/STLink连接STM32对照说明_20261118.md) 或 [Word 版](docs/STLink连接STM32对照说明_20261118.docx)，逐项核对接线、权限、100 kHz / Hot Plug、序列号和完整报错。该检查只证明调试读取可用，未验证当前应用固件；本轮 SRAM 内容与旧 IMU 诊断标记不一致，不能以监视器不识别诊断区直接判定 SWD 连接失败。可分享证据见 [连接摘要](validation/2026-11-18/stlink_connection.json)。
 
 软件测试命令为 `/usr/bin/python3 -m unittest discover -s tests -v`。离线查看已有实测记录可运行 `bash 启动IMU监视.sh --offline`。GitHub 中的原始实测证据位于 `validation/2026-11-05/`；监视器会在本地 `captures/` 缺少旧记录时使用这份只读归档。详见该目录说明和 `references/README.md`。
@@ -14,7 +22,7 @@ GitHub 维护入口为 `articulated-car-navigation-sim/hardware/`。本地历史
 
 当前采集板为用户所报 STM32F103C6T6A 最小系统板。两只 IMU 接 USART1/USART2，裸无线模块接 SPI1，外设使用板载 3.3V；详见 [当前接线说明](docs/stm32f103c6接线.md)。SWD 读到设备 ID 0x0412、Flash 32 KiB、页大小 1 KiB，工具报告 SRAM 10 KiB；与 C6 规格一致，不据此确认完整芯片后缀或 SRAM 实测容量。下面 MC02 接口审查为历史资料。
 
-## 本次范围（2026-11-03 用户确认）
+## 历史 USB 台架范围（2026-11-03 用户确认）
 
 ```text
 前车体 IMU406 ── UART ─┐
@@ -24,7 +32,7 @@ GitHub 维护入口为 `articulated-car-navigation-sim/hardware/`。本地历史
 
 本模块只采集并回传 IMU 数据。车辆行驶与转向已由树莓派另一条链路封装，本项目不控制、不接管、不改动该链路。不迁移仿真导航、相机识别或执行器控制代码。
 
-**当前已完成真实双 IMU UART 采集及 F103 SPI→USB RX 的低速无线回传，并保留此前电脑端 TX→RX 台架证据。** 加上电脑监视器，共 70 项离线测试用例通过：
+**已完成的物理证据仍为真实双 IMU UART 采集及 F103 SPI→USB RX 的低速无线回传，并保留此前电脑端 TX→RX 台架证据。** 加上电脑监视器，历史版本为 70 项测试；本轮新增连续发送调度、异常与显示测试后，当前共 83 项离线用例通过：
 
 - IMU406 UART 流解析、校验和、带符号 BCD 和 SI 单位转换（Python）。
 - 无 HAL 依赖的 IMU406 C 解码器，已用于 F103 接收诊断固件。
@@ -100,7 +108,7 @@ IMU406 手册中的明确接口：
 /usr/bin/python3 -m unittest discover -s tests -v
 ```
 
-测试只在临时目录用 `cc` 编译纯 C 库及假 ST-Link 后端，并做软件字节流测试；车辆、IMU、无线电和 MCU 均不会被访问。通常不足 1 秒；`Ctrl+C` 仅终止本地测试。共 70 项用例；五项只读调试后端测试需要局部 stlink 开发头文件，缺少时明确跳过，其余测试不依赖硬件。测试覆盖协议、CRC、BCD、丢字节恢复、收包状态、F103 SRAM 诊断格式、不一致调试读回拒绝和监视器数据隔离，不能代替设备通信验证。
+测试只在临时目录用 `cc` 编译纯 C 库及假 ST-Link/SPI 后端，并做软件字节流测试；车辆、IMU、无线电和 MCU 均不会被访问。当前通常约 2 秒；`Ctrl+C` 仅终止本地测试。共 83 项用例；五项只读调试后端测试需要局部 stlink 开发头文件，缺少时明确跳过，其余测试不依赖硬件。测试覆盖协议、CRC、BCD、丢字节恢复、收包状态、F103 SRAM 诊断格式、不一致调试读回拒绝、连续回传队列及监视器数据隔离，不能代替设备通信验证。
 
 检查手册中的应答字节（只打印解析结果，不发送）：
 
@@ -120,4 +128,4 @@ IMU406 手册中的明确接口：
 
 用户已改用一块 F103C6 并完成两只 IMU 接线和首次真实采集，USB 底板为 TX/RX 分工。2026-11-03 只读检查确认树莓派为 Pi 5 Model B Rev 1.1、Debian 13、Python 3.13.5，SPI 当时未启用。
 
-当前按用户选择先接通真实 IMU，最终频率后定；先保留 USB RX 做低速验证。当前 32 字节/只的格式不可能通过 9600、8N1 的 UART 承载两路各 100 Hz。尚未修改树莓派 SPI、GPIO 或已有移动控制链路。
+此前按用户选择先接通真实 IMU、最终频率后定，USB RX 只完成低速验证。2026-11-18 用户已选择裸无线模块直连树莓派 SPI；新代码不再经过该 9600、8N1 的 USB UART 限制。当前仅完成发射端候选代码和接收参数契约，尚未修改树莓派 SPI、GPIO 或已有移动控制链路。

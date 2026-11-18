@@ -1,0 +1,252 @@
+{
+  "date": "2026-11-18",
+  "scope": "offline software and firmware build only; no physical device opened",
+  "user_confirmed_receiver": "bare 8-pin radio to Raspberry Pi SPI",
+  "status": "candidate built; NOT flashed; actual Raspberry Pi receiver NOT deployed or validated",
+  "tests": {
+    "command": "/usr/bin/python3 -m unittest discover -s tests -v",
+    "passed": 83,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 1.852,
+    "log_sha256": "758dfd31460625a8160a77e1e965553d8c1ba799a9d7292b2e6dbbcefddee413",
+    "backend": "C scheduler and TX state machine; fake SPI ACK after 1500 us, polling every 50 us; real C/Python telemetry encoding and decoding"
+  },
+  "software_scenarios": [
+    {
+      "input_hz_per_imu": 25,
+      "seconds": 3,
+      "source_and_completed_packets": 150,
+      "sequence_gaps": 0,
+      "queue_drops": 0
+    },
+    {
+      "input_hz_per_imu": 100,
+      "seconds": 3,
+      "source_and_completed_packets": 600,
+      "sequence_gaps": 0,
+      "queue_drops": 0
+    },
+    {
+      "input_hz_per_imu": 25,
+      "seconds": 67,
+      "source_and_completed_packets": 3350,
+      "continues_after_old_65s_stop": true
+    }
+  ],
+  "failure_coverage": [
+    "bounded per-sensor FIFO and fair scheduling",
+    "stale drop accounting",
+    "invalid source and missing radio",
+    "MAX_RT releases channel",
+    "100 ms TX deadline",
+    "microsecond and sequence rollover including long uptime",
+    "RX register contract equality",
+    "profile 3 diagnostic decoding",
+    "monitor continuous mode does not claim USB end-to-end success"
+  ],
+  "build": {
+    "target": "STM32F103C6T6A",
+    "flash_limit_bytes": 32768,
+    "sram_limit_bytes": 10240,
+    "profile": "dual IMU RX -> direct SPI radio receiver; 32-byte whole frames; continuous; follows source rate; no IMU commands",
+    "profile_id": "radio-stream",
+    "compiler_flags": [
+      "-mcpu=cortex-m3",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-g3",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-common",
+      "-fstack-usage",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c11",
+      "-DSTM32F103x6",
+      "-I/home/gyt/钻探小车/铰接小车仿真/hardware/vendor/stm32f1_cmsis/device",
+      "-I/home/gyt/钻探小车/铰接小车仿真/hardware/vendor/stm32f1_cmsis/core",
+      "-I/home/gyt/钻探小车/铰接小车仿真/hardware/firmware/common",
+      "-DRADIO_TELEMETRY",
+      "-I/home/gyt/钻探小车/铰接小车仿真/hardware/firmware/f103_radio",
+      "-DRADIO_STREAM"
+    ],
+    "diagnostic_address": "0x20000000",
+    "diagnostic_bytes": 256,
+    "binary_bytes": 7084,
+    "binary_sha256": "21ea066bcec17e1c44858c8cb1238b782e87da46952b3a53172f8617e9f3ca08",
+    "inputs": {
+      "firmware/f103_capture/main.c": "bd8231d7711b70cb4a0ff837ebd3d0fa0e9a24c3c9b43696baa5489d2d88ea5b",
+      "firmware/common/imu406_stream.c": "537c8aa2064a3c33083c4a9642fa167a543903ef85dc15135609f6e8b73ee21a",
+      "firmware/common/imu406_decode.c": "b5116127dec7c38726ef9b45647f565d618c00640a5970151e75cf10bb631827",
+      "vendor/stm32f1_cmsis/device/startup_stm32f103x6.s": "56254accb4a72fe36b48e518bc7ea28e577353938a9c429cd847da52f660ce9e",
+      "firmware/common/boot_journal.c": "7934c5eddb035542ab9bff61df4fe617d41b5d5a83e50993375034a7eceea27f",
+      "firmware/common/nrf24_tx.c": "ab41c41146f5437feedc901f96774f24ae6bbf700d90296f58935874d113eefa",
+      "firmware/common/telemetry_v1.c": "07dd9fcef0036b46e6437334eb547a12e254228919ed12c354ff21138cfa3200",
+      "firmware/f103_radio/radio_app.c": "9ae61b8b847767c46f351dd31b7cbd2e287142113576b1141cbfb73922e14713",
+      "firmware/common/radio_stream.c": "6463be59d17ae9c70ab6f4f59699327b650e7f021f4cab39e557d4f9baaa76c5",
+      "firmware/f103_radio/linker.ld": "b30eaf0e8e123b6dd175e8dd9b77fae38b4ca6df27a041810f7decfe19575a56",
+      "firmware/common/imu406_decode.h": "48f42a430240603946d6de9baa74bc950488f5c08fb08a363011e1ff291c5015",
+      "firmware/common/telemetry_v1.h": "2531607a7c67f4ebb18262d6420a7cf4e03e2a3b3232e3e22006fe8c66f4fad8",
+      "firmware/common/imu406_stream.h": "f4fb2fcaad3e370b9f5a0f5ebd1abea12a8838502113fc77bc664556b8d647e9",
+      "firmware/common/nrf24_tx.h": "a0b83590c4c6b9c23780e2f8ee0cba1f13e6ca3fe38642feb47a2b8330e90695",
+      "firmware/common/boot_journal.h": "af7bce6decaabe2302ecbada8c65a6da8e3b05d5f64f367ce416b88acefdd176",
+      "firmware/common/radio_stream.h": "89df68502d3302da3a64fa0db06ba4590cc0d654290a1fba72b82b7d01ad9b7e",
+      "firmware/f103_radio/radio_app.h": "e0829e8c98322948fff003f75481c05166708273f58dcfb64f141c6fa3f396aa",
+      "tools/build_f103_capture.py": "569a0af143647a2a3f4447b639890ad142a7213bcbbc8fb6bb2f8b2f029bc872",
+      "configs/radio_spi_stream.json": "14c7d9cacc45c87fae24069dc524a77562a02a0afa0235e16181cb0b32ac7a31"
+    },
+    "cmsis_sources": [
+      {
+        "path": "device/stm32f103x6.h",
+        "url": "https://raw.githubusercontent.com/STMicroelectronics/cmsis-device-f1/8a76309ed1250d817e9c888c4417171d2ba3ba63/Include/stm32f103x6.h",
+        "sha256": "8e827edef0fbbc1f9fef6d1ec07fcf2c3789f18a906884cf88ac5fec893521be"
+      },
+      {
+        "path": "device/system_stm32f1xx.h",
+        "url": "https://raw.githubusercontent.com/STMicroelectronics/cmsis-device-f1/8a76309ed1250d817e9c888c4417171d2ba3ba63/Include/system_stm32f1xx.h",
+        "sha256": "a54dfbb3480c672f532d472a6e84bcf34df6551771d2e9966c5a3503c676b6ab"
+      },
+      {
+        "path": "device/startup_stm32f103x6.s",
+        "url": "https://raw.githubusercontent.com/STMicroelectronics/cmsis-device-f1/8a76309ed1250d817e9c888c4417171d2ba3ba63/Source/Templates/gcc/startup_stm32f103x6.s",
+        "sha256": "56254accb4a72fe36b48e518bc7ea28e577353938a9c429cd847da52f660ce9e"
+      },
+      {
+        "path": "device/License.md",
+        "url": "https://raw.githubusercontent.com/STMicroelectronics/cmsis-device-f1/8a76309ed1250d817e9c888c4417171d2ba3ba63/License.md",
+        "sha256": "b645e89bbfb6accf914cf7adca011712bf90055391fdd55f2af6439d98aa36d4"
+      },
+      {
+        "path": "core/core_cm3.h",
+        "url": "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.9.0/CMSIS/Core/Include/core_cm3.h",
+        "sha256": "c9937781259a8897adf514445441c68570087d6a72a558d8a4afe75cdb62dbd2"
+      },
+      {
+        "path": "core/cmsis_version.h",
+        "url": "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.9.0/CMSIS/Core/Include/cmsis_version.h",
+        "sha256": "184c19fd3ee73632edf35a0b4d49cd48be75fbf49e6ccb19d9db05fa83bea4b3"
+      },
+      {
+        "path": "core/cmsis_compiler.h",
+        "url": "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.9.0/CMSIS/Core/Include/cmsis_compiler.h",
+        "sha256": "b51963d271c1571ca3463654c76aa7ea50c4eac5d0a2710df10414ac64d9e0f8"
+      },
+      {
+        "path": "core/cmsis_gcc.h",
+        "url": "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.9.0/CMSIS/Core/Include/cmsis_gcc.h",
+        "sha256": "43bfd1fe69fbbc2ca70aaf7d43cc3e20f16e0c7f66e1bdef9b51af6dc14b2617"
+      },
+      {
+        "path": "core/mpu_armv7.h",
+        "url": "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.9.0/CMSIS/Core/Include/mpu_armv7.h",
+        "sha256": "29206b52ee02290ed6f5a5415ebd4187de802cf176d9b3cb844390d8e5571372"
+      },
+      {
+        "path": "core/LICENSE.txt",
+        "url": "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.9.0/LICENSE.txt",
+        "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+      }
+    ],
+    "flashed": false,
+    "boot_journal": {
+      "offset": 30720,
+      "bytes": 2048,
+      "purpose": "per-device boot ID; app writes one 8-byte record each boot"
+    },
+    "radio_stream": {
+      "channel": 60,
+      "air_bps": 250000,
+      "address_spi_hex": "3443101001",
+      "payload_bytes": 32,
+      "dynamic_payload": false,
+      "hardware_crc_bytes": 1,
+      "auto_ack": true,
+      "retransmit_delay_us": 750,
+      "retransmit_count": 3,
+      "fragment_gap_us": 0,
+      "continuous": true,
+      "imu_commands": false,
+      "source_rate_hz_per_sensor_expected": 25,
+      "rate_policy": "each valid frame; no artificial downsampling",
+      "queue_depth_per_sensor": 4,
+      "maximum_queue_age_us": 100000,
+      "tx_completion_deadline_us": 100000,
+      "power_up_settle_us": 2000,
+      "receiver_config": "configs/radio_spi_stream.json",
+      "physically_verified": false
+    }
+  },
+  "memory": {
+    "ordinary_ram_used_bytes": 2828,
+    "diagnostic_bytes": 256,
+    "stack_space_bytes": 7156,
+    "linker_minimum_stack_bytes": 2048
+  },
+  "flash_preview": {
+    "action": "review only",
+    "hardware_opened": false,
+    "pages_to_replace_if_later_authorized": 7
+  },
+  "legacy_binary_checks": {
+    "capture": {
+      "bytes": 3776,
+      "sha256": "66e473fa7c2a1f3fa0f48f571cab969c22d9f80eb451574aebb2bc4461e23230",
+      "identical_to_historically_verified_binary": true
+    },
+    "radio": {
+      "bytes": 6896,
+      "sha256": "68b93dba6b86ed65107a737ccfd6a3e21a4850fd781eab963f0f6110806b0ff5",
+      "identical_to_historically_verified_binary": true
+    }
+  },
+  "source_sha256": {
+    "firmware/common/boot_journal.c": "7934c5eddb035542ab9bff61df4fe617d41b5d5a83e50993375034a7eceea27f",
+    "firmware/common/boot_journal.h": "af7bce6decaabe2302ecbada8c65a6da8e3b05d5f64f367ce416b88acefdd176",
+    "firmware/common/imu406_decode.c": "b5116127dec7c38726ef9b45647f565d618c00640a5970151e75cf10bb631827",
+    "firmware/common/imu406_decode.h": "48f42a430240603946d6de9baa74bc950488f5c08fb08a363011e1ff291c5015",
+    "firmware/common/imu406_stream.c": "537c8aa2064a3c33083c4a9642fa167a543903ef85dc15135609f6e8b73ee21a",
+    "firmware/common/imu406_stream.h": "f4fb2fcaad3e370b9f5a0f5ebd1abea12a8838502113fc77bc664556b8d647e9",
+    "firmware/common/nrf24_tx.c": "ab41c41146f5437feedc901f96774f24ae6bbf700d90296f58935874d113eefa",
+    "firmware/common/nrf24_tx.h": "a0b83590c4c6b9c23780e2f8ee0cba1f13e6ca3fe38642feb47a2b8330e90695",
+    "firmware/common/radio_stream.c": "6463be59d17ae9c70ab6f4f59699327b650e7f021f4cab39e557d4f9baaa76c5",
+    "firmware/common/radio_stream.h": "89df68502d3302da3a64fa0db06ba4590cc0d654290a1fba72b82b7d01ad9b7e",
+    "firmware/common/telemetry_v1.c": "07dd9fcef0036b46e6437334eb547a12e254228919ed12c354ff21138cfa3200",
+    "firmware/common/telemetry_v1.h": "2531607a7c67f4ebb18262d6420a7cf4e03e2a3b3232e3e22006fe8c66f4fad8",
+    "firmware/f103_capture/main.c": "bd8231d7711b70cb4a0ff837ebd3d0fa0e9a24c3c9b43696baa5489d2d88ea5b",
+    "firmware/f103_radio/radio_app.c": "9ae61b8b847767c46f351dd31b7cbd2e287142113576b1141cbfb73922e14713",
+    "firmware/f103_radio/radio_app.h": "e0829e8c98322948fff003f75481c05166708273f58dcfb64f141c6fa3f396aa",
+    "sweeper_hw/__init__.py": "8cb5e39905bd315eccd47488a7713e6618829aaed409da40da0f152429b3cffe",
+    "sweeper_hw/f103_diagnostic.py": "7d682b09d1da9f5841f8e73d17b5dcf65ce5cdacb4550fc272051aaa945e2caf",
+    "sweeper_hw/imu406.py": "2b1ca7e6b89f250f984ff32525907d6497d93f1b9dfc6fb22593f6e9e8914799",
+    "sweeper_hw/inspect_capture.py": "b7f344a9c4dcb8e533d32b6fff66037fc7675eed26089d128b70f97ba60160ba",
+    "sweeper_hw/monitor.py": "9cee2eb037b1fbcbb0687b49acf3e00d0998bf8bcefc472c679e801a1178328f",
+    "sweeper_hw/monitor_state.py": "3107565d7a7a5cbc93de657d682387c0b12db2d8a1563a19040c1d811db79275",
+    "sweeper_hw/monitor_view.py": "d3c8183725e8b38e18593d7dba56a5070ad4265f42b1489fc7a617150c9b768f",
+    "sweeper_hw/telemetry.py": "c49442d9dfb8d04a5ea50c2e2d11703e4489afc852b180373a12b4f076affeee",
+    "sweeper_hw/telemetry_stream.py": "20d5849d81c36d6c328fa7a85130554661bd4dcdba69b1070f8a8802b0a63702",
+    "sweeper_hw/usb_receiver.py": "759bea69906c72a3210f55215af86b6ee544c0f5e1a33dd6a59f9f82c3c343a7",
+    "tests/test_f103_diagnostic.py": "ca4edf485e385b2b498566a95840fe10e57852117864407afc2e53a945c33f76",
+    "tests/test_imu406.py": "d83ec251d8d7ddb8e7c0d83424425efeb7b15b8e6b27a349ea63454e8d3ef725",
+    "tests/test_imu406_stream_c.py": "e76b8e4aff15d6c3e6f24833c5f7706e63e48792064d0e736b9f964aeb9d12ee",
+    "tests/test_monitor.py": "8946786c0cbcd4c125a40d71a521583ee14e8a7b3cfa23fd1eff37185bdc3000",
+    "tests/test_radio_firmware.py": "472ff16a240a464fbb8bd35e8192cfb9a844155c13ca64c4c511c2c12718c948",
+    "tests/test_radio_report.py": "203bd088b3aad800dee7df3b056ec6ae9834f6e738b8492cd0e0e469f070ae75",
+    "tests/test_radio_stream.py": "75001ea41436744010eb19aa84efb28a8427c42ad3eb2c35b2dcb10e2e81991c",
+    "tests/test_stlink_readonly.py": "941bbdce0fda711b925c03a0de0515afb8aa8576d8b2003d7163f1f85693ec14",
+    "tests/test_telemetry.py": "88ade0ad0a3aef036f132815d9412dcc72acaf7ad886de59fdf150c2293fd40a",
+    "tests/test_telemetry_stream.py": "cd401178a1eda49e681b8e878b9f4baaeed19e34fdfd9112e9f8c1e5210b8204",
+    "tools/build_f103_capture.py": "569a0af143647a2a3f4447b639890ad142a7213bcbbc8fb6bb2f8b2f029bc872",
+    "tools/flash_f103_capture.py": "b60ac6aee596e622cc4b684673aa2e192bf4fd0c59e1650041a3a692cd610e85",
+    "configs/radio_spi_stream.json": "14c7d9cacc45c87fae24069dc524a77562a02a0afa0235e16181cb0b32ac7a31"
+  },
+  "limitations": [
+    "software ACK timing is simulated; no measured radio throughput or latency",
+    "25 Hz per IMU is the historical source output baseline; no IMU configuration was sent",
+    "continuous streaming starts only after future authorized flashing",
+    "Raspberry Pi SPI and movement-control chain untouched",
+    "build binaries stay local; source and build manifest are synchronized"
+  ]
+}
