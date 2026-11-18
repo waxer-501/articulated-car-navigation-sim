@@ -2,6 +2,8 @@
 
 GitHub 维护入口为 `articulated-car-navigation-sim/hardware/`。本地历史文件夹名“清扫小车实机”沿用；本模块服务于独立铰接小车。首次克隆后在 `hardware/` 运行 `bash 安装实机环境.sh`；需构建固件及 ST-Link 旁路工具时运行 `bash 安装实机环境.sh --with-firmware-tools`。安装只创建局部环境和下载校验后的依赖，不连接、烧录或复位硬件。依赖恢复脚本支持已验证的 Ubuntu 22.04 x86_64；树莓派接收软件及正式部署仍待单独验证。
 
+2026-11-18 已只读复核 ST-Link/V2 → F103 的 SWD 热连接。另一台电脑连接同板时，可使用 [连接对照说明](docs/STLink连接STM32对照说明_20261118.md) 或 [Word 版](docs/STLink连接STM32对照说明_20261118.docx)，逐项核对接线、权限、100 kHz / Hot Plug、序列号和完整报错。该检查只证明调试读取可用，未验证当前应用固件；本轮 SRAM 内容与旧 IMU 诊断标记不一致，不能以监视器不识别诊断区直接判定 SWD 连接失败。可分享证据见 [连接摘要](validation/2026-11-18/stlink_connection.json)。
+
 软件测试命令为 `/usr/bin/python3 -m unittest discover -s tests -v`。离线查看已有实测记录可运行 `bash 启动IMU监视.sh --offline`。GitHub 中的原始实测证据位于 `validation/2026-11-05/`；监视器会在本地 `captures/` 缺少旧记录时使用这份只读归档。详见该目录说明和 `references/README.md`。
 
 电脑端桌面监视已提供：运行 [`启动IMU监视.sh`](启动IMU监视.sh)，或在应用菜单搜索“铰接小车 IMU通信监视”。窗口分别显示 STM32 采集、无线发送和 USB 实收，支持三轴曲线、原始包、自动记录和明确标识的历史回放；不烧录、不复位、不控制车辆。见 [监视器使用说明](docs/IMU通信监视使用.md)。

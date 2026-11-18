@@ -1,0 +1,71 @@
+{
+  "date_local": "2026-11-18",
+  "timezone": "Asia/Shanghai",
+  "first_probe_utc": "2026-11-18T10:04:45Z",
+  "scope": "Read-only ST-Link to STM32 identification; not firmware, IMU or RF validation",
+  "target_user_reported": "STM32F103C6T6A",
+  "host": {
+    "os": "Ubuntu 22.04.5 LTS x86_64",
+    "kernel": "6.8.0-138-generic",
+    "usb_permissions": "root:plugdev 0660 plus uaccess; current user in plugdev"
+  },
+  "debugger": {
+    "usb_id": "0483:3748",
+    "model": "ST-LINK/V2",
+    "serial": "33FF72064243323456261357",
+    "firmware_version_historical": "V2J45S7 recorded 2026-11-04; not re-queried 2026-11-18"
+  },
+  "connection": {
+    "interface": "SWD",
+    "mode": "CONNECT_HOT_PLUG",
+    "clock_khz": 100,
+    "library": "libstlink 1.7.0; Ubuntu package 1.7.0+ds-1",
+    "requested_halt_reset_run_erase_or_flash": false
+  },
+  "observations": {
+    "chip_id": "0x0412",
+    "flash_bytes": 32768,
+    "core_id": "0x1ba01477",
+    "cpuid": "0x411fc231",
+    "tool_voltage_mV": [
+      3226,
+      3226,
+      3233
+    ],
+    "core_states": [
+      3,
+      1,
+      1
+    ],
+    "enum_meaning": {
+      "1": "TARGET_RUNNING",
+      "2": "TARGET_HALTED",
+      "3": "TARGET_RESET"
+    },
+    "diagnostic_address": "0x20000000",
+    "diagnostic_word_observed": "0xb2b6d2b9",
+    "historical_expected_imu_diagnostic_magic": "0x31444d49",
+    "application_firmware_verified": false
+  },
+  "limitations": [
+    "USB enumeration alone is not target identification",
+    "Initial reset state and sticky reset status cause were not determined",
+    "Tool voltage is not an independent multimeter measurement",
+    "Physical wiring and BOOT jumpers were not re-inspected during this read-only check",
+    "No IMU or RF functional test was performed"
+  ],
+  "probe_source_sha256": "070b95b6e9e203bc235738cf9a99f1717ba10928525df28cef26ee6cc881c675",
+  "local_original_directory": "hardware/captures/stlink_connection_20261118T100445Z",
+  "original_log_sha256": {
+    "probe.log": "8a2f59958e7c9d8a2f6208dbb1d20ff07a98c9faccb200fe54f58ad1b8c43d4e",
+    "recheck_1.log": "1e5bf4fc0c65c8c61849a1e5c22b7be8944b7dd0c9dec4089caf86b0517bb93c",
+    "recheck_2.log": "84c62215af2ba617ad8a46b2ebceac511ad7b8ed14da0b0e7517607a77c0490d",
+    "rechecks.json": "2b01379a6bdfb6953b710e506dacf6bc9b4d8f545ed22a3a74573bac1b39328f",
+    "result.json": "45e6df01b2e3742a1b48fa1570f9722646fb7b3c963242eaa2ffe004088c64a4"
+  },
+  "probe_output": "chip_id=0x00000412 flash_bytes=32768 core_id=0x1ba01477 voltage_tool_mV=3226\nstatus_rc=0 core_state=3\naddr=0xe0042000 rc=0 value=0x10006412\naddr=0xe000ed00 rc=0 value=0x411fc231\naddr=0xe000edf0 rc=0 value=0x01010000\naddr=0xe000ed28 rc=0 value=0x00000000\naddr=0xe000ed2c rc=0 value=0x00000000\naddr=0xe000ed38 rc=0 value=0x40013800\naddr=0x40021000 rc=0 value=0x03005483\naddr=0x40021004 rc=0 value=0x0010000a\naddr=0x40010804 rc=0 value=0x444444b4\naddr=0x40010800 rc=0 value=0x44444444\naddr=0x40010004 rc=0 value=0x00000000\naddr=0x4002200c rc=0 value=0x00000000\naddr=0x40022010 rc=0 value=0x00000080\naddr=0x20000000 rc=0 value=0xb2b6d2b9\naddr=0x08007800 rc=0 value=0x00000001\naddr=0x08007804 rc=0 value=0xfffffffe\naddr=0x08000000 rc=0 value=0x20002800\n",
+  "recheck_outputs": [
+    "chip_id=0x00000412 flash_bytes=32768 core_id=0x1ba01477 voltage_tool_mV=3226\nstatus_rc=0 core_state=1\naddr=0xe0042000 rc=0 value=0x10006412\naddr=0xe000ed00 rc=0 value=0x411fc231\naddr=0xe000edf0 rc=0 value=0x01010000\naddr=0xe000ed28 rc=0 value=0x00000000\naddr=0xe000ed2c rc=0 value=0x00000000\naddr=0xe000ed38 rc=0 value=0x40013800\naddr=0x40021000 rc=0 value=0x03005483\naddr=0x40021004 rc=0 value=0x0010000a\naddr=0x40010804 rc=0 value=0x444444b4\naddr=0x40010800 rc=0 value=0x44444444\naddr=0x40010004 rc=0 value=0x00000000\naddr=0x4002200c rc=0 value=0x00000000\naddr=0x40022010 rc=0 value=0x00000080\naddr=0x20000000 rc=0 value=0xb2b6d2b9\naddr=0x08007800 rc=0 value=0x00000001\naddr=0x08007804 rc=0 value=0xfffffffe\naddr=0x08000000 rc=0 value=0x20002800\n",
+    "chip_id=0x00000412 flash_bytes=32768 core_id=0x1ba01477 voltage_tool_mV=3233\nstatus_rc=0 core_state=1\naddr=0xe0042000 rc=0 value=0x10006412\naddr=0xe000ed00 rc=0 value=0x411fc231\naddr=0xe000edf0 rc=0 value=0x01010000\naddr=0xe000ed28 rc=0 value=0x00000000\naddr=0xe000ed2c rc=0 value=0x00000000\naddr=0xe000ed38 rc=0 value=0x40013800\naddr=0x40021000 rc=0 value=0x03005483\naddr=0x40021004 rc=0 value=0x0010000a\naddr=0x40010804 rc=0 value=0x444444b4\naddr=0x40010800 rc=0 value=0x44444444\naddr=0x40010004 rc=0 value=0x00000000\naddr=0x4002200c rc=0 value=0x00000000\naddr=0x40022010 rc=0 value=0x00000080\naddr=0x20000000 rc=0 value=0xb2b6d2b9\naddr=0x08007800 rc=0 value=0x00000001\naddr=0x08007804 rc=0 value=0xfffffffe\naddr=0x08000000 rc=0 value=0x20002800\n"
+  ]
+}
